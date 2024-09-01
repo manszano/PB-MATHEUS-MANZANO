@@ -9,23 +9,25 @@
 ### Sobre Mim
 
 📍 &nbsp;**Localização:** São Paulo, SP - Vila Prudente\
-🎸 &nbsp;**Hobbies**: Música, Violão, Futebol
-
+🎸 &nbsp;**Hobbies**: Música, Violão, Futebol\
+&nbsp;
 
 #### Formação
 
 🏫 &nbsp;**Instituição de Ensino:** Senac EAD - Polo Vila Prudente\
 🎓 &nbsp;**Curso:** Ánalise e Desenvolvimento de Sistemas\
-📚 &nbsp;**Semestre Atual:** 4º Semestre
-
+📚 &nbsp;**Semestre Atual:** 4º Semestre\
+&nbsp;
 
 #### Conhecimentos
 
 ![Python](https://img.shields.io/badge/-Python-05122A?style=flat&logo=python)&nbsp;
 ![Git](https://img.shields.io/badge/-Git-05122A?style=flat&logo=git)&nbsp;
 ![Lua](https://img.shields.io/badge/-Lua-05122A?style=flat&logo=lua)&nbsp;
-![MySQL](https://img.shields.io/badge/-MySQL-05122A?style=flat&logo=mysql)&nbsp;
-
+![MySQL](https://img.shields.io/badge/-MySQL-05122A?style=flat&logo=mysql)&nbsp;\
+![Linux](https://img.shields.io/badge/Linux-05122A??style=flat&logo=linux)
+![Sass](https://img.shields.io/badge/Sass-05122A??style=flat&logo=sass)
+&nbsp;
 
 #### Experiências
 
@@ -37,13 +39,13 @@
 ### Sprints PB
 
 [Sprint 1](https://github.com/manszano/PB-MATHEUS-MANZANO/tree/main/Sprint%201)\
-..
-
+..\
+&nbsp;
 
 #### Informações Adicionais
 
-📷 &nbsp; _Caso seja necessário a minha foto **sem o banner**_ [foto_matheus](https://github.com/user-attachments/assets/060570f5-cb15-4484-8f96-4e0415d2b6e6)
-
+📷 &nbsp; _Caso seja necessário a minha foto **sem o banner**_ [foto_matheus](https://github.com/user-attachments/assets/060570f5-cb15-4484-8f96-4e0415d2b6e6)\
+&nbsp;
 
 ![bottom](https://github.com/user-attachments/assets/a06b7240-a4be-45d7-86e7-9427136b3891)
 
