@@ -24,16 +24,17 @@
 ![Python](https://img.shields.io/badge/-Python-05122A?style=flat&logo=python)&nbsp;
 ![Git](https://img.shields.io/badge/-Git-05122A?style=flat&logo=git)&nbsp;
 ![Lua](https://img.shields.io/badge/-Lua-05122A?style=flat&logo=lua)&nbsp;
-![MySQL](https://img.shields.io/badge/-MySQL-05122A?style=flat&logo=mysql)&nbsp;\
+![MySQL](https://img.shields.io/badge/-MySQL-05122A?style=flat&logo=mysql)&nbsp;
 ![Linux](https://img.shields.io/badge/Linux-05122A??style=flat&logo=linux)
-![Sass](https://img.shields.io/badge/Sass-05122A??style=flat&logo=sass)
+![Sass](https://img.shields.io/badge/Sass-05122A??style=flat&logo=sass)\
 &nbsp;
 
 #### Experiências
 
 📞 &nbsp;**A.Telecom:** Atuei principalmente no desenvolvimento de relatórios utilizando SQL, voltados para integração e visualização.\
 ✍ &nbsp;**Conceito Embalagens:** Atuei desenvolvendo e implementando uma base de dados para gerenciar informações sobre embalagens.\
-🛠 &nbsp;**Mib Hub:** Contribuí no desenvolvimento de um projeto em Lua focado na detecção de exploits em jogos desenvolvidos na engine Unity.
+🛠 &nbsp;**Mib Hub:** Contribuí no desenvolvimento de um projeto em Lua focado na detecção de exploits em jogos desenvolvidos na engine Unity.\
+&nbsp;
 
 ---
 ### Sprints PB
