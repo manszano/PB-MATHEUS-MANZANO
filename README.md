@@ -2,49 +2,34 @@
   <img src="https://github.com/user-attachments/assets/878da8b1-8476-4007-98e1-501aa6d9e275" width="100%" alt="Banner">
 </div>
 
-# Instruções
+<img alt="Night Coding" src="https://github.com/user-attachments/assets/3a98fcec-2500-483f-82e4-c0ef7351f340" width='40' align="left"/><h2>Olá Eu sou o Matheus!</h2>
 
+### Sobre Mim
 
+📍 &nbsp;**Localização:** São Paulo, SP - Vila Prudente\
+🎸 &nbsp;**Hobbies**: Música, Violão, Futebol
 
-Neste arquivo você irá apresentar suas entregas da Sprint corrente. Observe que existem 4 diretórios no exemplo: **exercícios**, **certificados** e **evidências**.
+### Formação
 
- - O diretório **exercícios** corresponde ao local onde você irá adicionar o código-fonte das atividades de codificação da Sprint, quando houver.
- - O diretório **evidências** você pode utilizar para adicionar imagens demonstrando a execução/resultados de atividades, quando necessário.
- - O diretório **certificados** é o local onde você irá armazenar os certificados dos cursos solicitados durante a sprint. O nome de cada certificado de corresponder ao título do curso.
- - O diretório **desafio** é o local onde você irá armazenar a resolução do que se pede no desafio, todos recursos que você considerar importante deverá está dentro desse diretório.
+🏫 &nbsp;**Instituição de Ensino:** Senac EAD - Polo Vila Prudente\
+🎓 &nbsp;**Curso:** Ánalise e Desenvolvimento de Sistemas\
+📚 &nbsp;**Semestre Atual:** 4º Semestre\
 
-Utilize o arquivo README.md da Sprint para organizar todas as suas entregas. Faça referência aos arquivos de código-fonte. Evite colocar código diretamente no Markdown pois dificulta nossa avaliação.
+### Conhecimentos
 
+![Python](https://img.shields.io/badge/-Python-05122A?style=flat&logo=python)&nbsp;
+![Git](https://img.shields.io/badge/-Git-05122A?style=flat&logo=git)&nbsp;
+![Lua](https://img.shields.io/badge/-Lua-05122A?style=flat&logo=lua)&nbsp;
+![MySQL](https://img.shields.io/badge/-MySQL-05122A?style=flat&logo=mysql)&nbsp;
 
-# Exercícios
+### Experiências
+📞 &nbsp; **A.Telecom:** Atuei principalmente no desenvolvimento de relatórios utilizando SQL, voltados para integração e visualização.\
+✍ &nbsp; **Conceito Embalagens:** Atuei desenvolvendo e implementando uma base de dados para gerenciar informações sobre embalagens.\
+🛠 &nbsp; **Mib Hub:** Contribuí no desenvolvimento de um projeto em Lua focado na detecção de exploits em jogos desenvolvidos na engine Unity.\
 
+### Informações Adicionais
 
-1. ...
-[Resposta Ex1.](exercicios/ex1.txt)
-
-
-2. ...
-[Resposta Ex2.](exercicios/ex2.txt)
-
-
-
-
-# Evidências
-
-
-Ao executar o código do exercício ... observei que ... conforme podemos ver na imagem a seguir:
-
-
-![Evidencia 1](evidencias/sample.webp)
-
-
-
-
-
-# Certificados
-
-
-- Certificado do Curso ABC
-![Curso ABC](certificados/sample.png)
+📷 &nbsp; Caso seja necessário a minha foto **sem o banner** [foto_matheus](https://github.com/user-attachments/assets/060570f5-cb15-4484-8f96-4e0415d2b6e6)
 
 ![bottom](https://github.com/user-attachments/assets/a06b7240-a4be-45d7-86e7-9427136b3891)
+
