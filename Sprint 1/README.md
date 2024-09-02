@@ -1,45 +1,82 @@
 <div>
   <img src="https://github.com/user-attachments/assets/ca35cb06-bf19-4cfd-9495-7928efdd9915" width="100%" alt="Banner">
 </div>
-# Instruções
+# **Sprint 1**
 
-Neste arquivo você irá apresentar suas entregas da Sprint corrente. Observe que existem 4 diretórios no exemplo: **exercícios**, **certificados** e **evidências**.
+## 📝 **Instruções/Informações/Anotações**
 
- - O diretório **exercícios** corresponde ao local onde você irá adicionar o código-fonte das atividades de codificação da Sprint, quando houver.
- - O diretório **evidências** você pode utilizar para adicionar imagens demonstrando a execução/resultados de atividades, quando necessário.
- - O diretório **certificados** é o local onde você irá armazenar os certificados dos cursos solicitados durante a sprint. O nome de cada certificado de corresponder ao título do curso.
- - O diretório **desafio** é o local onde você irá armazenar a resolução do que se pede no desafio, todos recursos que você considerar importante deverá está dentro desse diretório.
+### **Objetivo da Sprint:**
+Desenvolvimento de um projeto baseado em Bash para automatizar o processo de backup e análise de dados de vendas.
 
-Utilize o arquivo README.md da Sprint para organizar todas as suas entregas. Faça referência aos arquivos de código-fonte. Evite colocar código diretamente no Markdown pois dificulta nossa avaliação.
+- **Tarefas Realizadas:**  
+  - **Script de Backup e Processamento de Vendas:**  
+    - Realiza o backup dos dados de vendas diários, processa as informações e gera um relatório.
+  - **Script de Consolidação de Relatórios:**  
+    - Consolida múltiplos arquivos de relatório em um único arquivo.
+  - **Setup do cron**
+    - Criar uma tarefa `cron` para executar o script todos os dias as 15 e 27
 
+### **Anotações Importantes:**
+#### _aprendizados:_
 
-# Exercícios
+- **Tecnologias Utilizadas:** Bash
+- **Desafios Enfrentados:**  
+  - utilização dos comandos Bash e `awk`.
+- **Soluções:**  
+  - Utilização de comandos `cp`, `mv`, `awk`, `head`, `zip` e `cat` para processar os arquivos de dados de vendas.
+  - Geração de relatórios detalhados para análise e consolidação de dados.
 
+---
+## **Exercícios**
+_Essa sprint não conteve exercicios_
 
-1. ...
-[Resposta Ex1.](exercicios/ex1.txt)
+## **Desafios**
 
+Durante a sprint, realizamos o desafio `Ecommerce`
 
-2. ...
-[Resposta Ex2.](exercicios/ex2.txt)
+1. **Tarefa 1**  
+   - **Objetivo:** Desenvolver um script para realizar o backup diário dos dados de vendas e gerar um relatório.
+   - **Resultado:** O script foi criado com sucesso.
 
+2. **Tarefa 2:**  
+   - **Objetivo:** Criar um script para concatenar múltiplos relatórios em um único arquivo.
+   - **Resultado:** O script foi implementado, combinando todos os relatórios.
+  
+3. **Tarefa 3:**  
+   - **Objetivo:** Criar uma tarefa `cron` programada pra fazer execuções do script.
+   - **Resultado:** A tarefa foi executada com sucesso.
 
+---
 
+## 📸 **Evidências**
 
-# Evidências
+### **Resultados:**
+Aqui estão as evidências do que foi realizado durante a sprint.
 
+- **Evidência 1:**
+- ![image](https://github.com/user-attachments/assets/83ad4195-1d88-48b7-ba3f-ee4a72470b79)
+*Definição da crontab (utilizado comando `crontab -l)*
 
-Ao executar o código do exercício ... observei que ... conforme podemos ver na imagem a seguir:
+![image](https://github.com/user-attachments/assets/2ef1bb3f-4675-4640-ba3c-2638c5bbe3ee)
 
+  ![Screenshot 1](./caminho/para/screenshot1.png)  
+  *Descrição breve da evidência*
 
-![Evidencia 1](evidencias/sample.webp)
+- **Evidência 2:**  
+  ![Screenshot 2](./caminho/para/screenshot2.png)  
+  *Descrição breve da evidência*
 
+---
 
+## 🎓 **Certificados**
 
-# Certificados
+### **Certificados Conquistados Durante a Sprint:**
+Sem certificados
 
+---
 
-- Certificado do Curso ABC
-![Curso ABC](certificados/sample.png)
+## 🎯 **Conclusão da Sprint**
+
+Nesta sprint, concluímos com sucesso os objetivos propostos, enfrentamos desafios importantes e adquirimos novos conhecimentos. Continuamos focados no progresso e aprimoramento contínuo, e estamos prontos para as próximas etapas!
 
 
