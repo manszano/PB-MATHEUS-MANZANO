@@ -1,7 +1,6 @@
 <div>
   <img src="https://github.com/user-attachments/assets/ca35cb06-bf19-4cfd-9495-7928efdd9915" width="100%" alt="Banner">
 </div>
-# **Sprint 1**
 
 ## 📝 **Instruções/Informações/Anotações**
 
@@ -53,18 +52,29 @@ Durante a sprint, realizamos o desafio `Ecommerce`
 ### **Resultados:**
 Aqui estão as evidências do que foi realizado durante a sprint.
 
-- **Evidência 1:**
-- ![image](https://github.com/user-attachments/assets/83ad4195-1d88-48b7-ba3f-ee4a72470b79)
-*Definição da crontab (utilizado comando `crontab -l)*
+**Evidência 1:**\
+![image](https://github.com/user-attachments/assets/83ad4195-1d88-48b7-ba3f-ee4a72470b79)\
+![image](https://github.com/user-attachments/assets/b2406aaa-31b2-4367-a468-0a762863bbf3)
 
-![image](https://github.com/user-attachments/assets/2ef1bb3f-4675-4640-ba3c-2638c5bbe3ee)
+*Definição da crontab e execuções (utilizado comando `crontab -l)*
 
-  ![Screenshot 1](./caminho/para/screenshot1.png)  
-  *Descrição breve da evidência*
+**Evidência 2:**
+![image](https://github.com/user-attachments/assets/2ef1bb3f-4675-4640-ba3c-2638c5bbe3ee)\
+![image](https://github.com/user-attachments/assets/021ee065-26c3-48f4-8c69-ed7a87363b0d)\
+*Diretórios no linux*
 
-- **Evidência 2:**  
-  ![Screenshot 2](./caminho/para/screenshot2.png)  
-  *Descrição breve da evidência*
+**Evidência 3:**\
+![image](https://github.com/user-attachments/assets/33c15df6-5332-43ba-9ba2-372c7abd3fbf)\
+*Relatório de dados*
+
+**Evidência 4:**\
+![image](https://github.com/user-attachments/assets/60ee75cc-fcbe-4351-8b31-9bd71ebe7f91)\
+*Script de execução 1*
+
+**Evidência 4:**\
+![image](https://github.com/user-attachments/assets/82c2cbca-b522-4cd6-b23d-42d4356ade98)\
+*Script de execução 2*
+
 
 ---
 
@@ -77,6 +87,5 @@ Sem certificados
 
 ## 🎯 **Conclusão da Sprint**
 
-Nesta sprint, concluímos com sucesso os objetivos propostos, enfrentamos desafios importantes e adquirimos novos conhecimentos. Continuamos focados no progresso e aprimoramento contínuo, e estamos prontos para as próximas etapas!
-
+Nesta sprint, concluímos com sucesso os objetivos propostos, enfrentamos desafios importantes e adquirimos novos conhecimentos, gostei do projeto e de sua estrutura e estou empolgado para as próximas Sprints!!
 
