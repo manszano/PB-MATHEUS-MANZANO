@@ -133,7 +133,17 @@ cat "$diretorio"/relatorio-*.txt > "$relatorio"
 ```
 - Utiliza o comando `cat` para concatenar todos os arquivos de relatório que seguem o padrão de nome `relatorio-*.txt`. O conteúdo de todos esses arquivos é combinado e salvo como `relatorio_final.txt`.
 
+## 💡 **3. Script Cron**
+- **Sistema Operacional:** Linux (Ubuntu)
+- **Autor:** Matheus de Souza Manzano
+- **Objetivo:** Criar uma tarefa cron que executa diariamente o `processamento_de_vendas.sh`.
+### Informações gerais
+### 1. Definição Tarefa cron
+```bash
+27 15 * * * /home/matheus/ecommerce/processamento_de_vendas.sh
+```
+- Define a data de execução do script `processamento_de_vendas.sh` para todos os dias as `15:27:00`.
 ## Resultado
 O resultado final é o conjunto de dois scripts que trabalham para criar processo de análise e backup de dados de vendas. O primeiro script cuida da geração de backups e relatórios, O segundo script consolida esses relatórios em um único arquivo.
 
-  ![bottom](https://github.com/user-attachments/assets/a06b7240-a4be-45d7-86e7-9427136b3891)
+![bottom](https://github.com/user-attachments/assets/a06b7240-a4be-45d7-86e7-9427136b3891)
