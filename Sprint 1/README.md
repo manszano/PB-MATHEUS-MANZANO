@@ -35,6 +35,7 @@ Durante a sprint, realizamos o desafio `Ecommerce`
 
 1. **Tarefa 1**  
    - **Objetivo:** Desenvolver um script para realizar o backup diário dos dados de vendas e gerar um relatório.
+   - **Observações:** Todo dia foi adcionado uma linha ao arquivo de dados, para popular.
    - **Resultado:** O script foi criado com sucesso.
 
 2. **Tarefa 2:**  
