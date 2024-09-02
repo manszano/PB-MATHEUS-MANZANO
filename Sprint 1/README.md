@@ -1,4 +1,6 @@
-
+<div>
+  <img src="https://github.com/user-attachments/assets/ca35cb06-bf19-4cfd-9495-7928efdd9915" width="100%" alt="Banner">
+</div>
 # Instruções
 
 Neste arquivo você irá apresentar suas entregas da Sprint corrente. Observe que existem 4 diretórios no exemplo: **exercícios**, **certificados** e **evidências**.
