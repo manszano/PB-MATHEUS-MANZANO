@@ -23,7 +23,7 @@ Desenvolvimento de um projeto baseado em Bash para automatizar o processo de bac
   - utilização dos comandos Bash e `awk`.
 - **Soluções:**  
   - Utilização de comandos `cp`, `mv`, `awk`, `head`, `zip` e `cat` para processar os arquivos de dados de vendas.
-  - Geração de relatórios detalhados para análise e consolidação de dados.
+  - Geração de relatórios detalhados consolidação dos dados.
 
 ---
 ## **Exercícios**
