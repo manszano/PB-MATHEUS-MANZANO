@@ -28,7 +28,7 @@ Desenvolvimento de um projeto baseado em Bash para automatizar o processo de bac
 ---
 ## **Exercícios**
 _Essa sprint não conteve exercicios_
-
+---
 ## **Desafios**
 
 Durante a sprint, realizamos o desafio `Ecommerce`
