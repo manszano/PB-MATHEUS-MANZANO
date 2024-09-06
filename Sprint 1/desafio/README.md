@@ -22,7 +22,7 @@ ecommerce/
 1. [processamento_de_vendas.sh](https://github.com/manszano/PB-MATHEUS-MANZANO/blob/main/Sprint%201/desafio/etapa-1/ecommerce/processamento_de_vendas.sh)
 2. [consolidados_de_processamento_de_vendas.sh](https://github.com/manszano/PB-MATHEUS-MANZANO/blob/main/Sprint%201/desafio/etapa-1/ecommerce/consolidador_de_processamento_de_vendas.sh)
 
-
+---
 ## 💡 **1. Script de Backup e Processamento de Vendas (_processamento_de_vendas.sh_)**
 
 ### Informações gerais
@@ -101,7 +101,9 @@ total de itens diferentes vendidos: 10
 Primeiras 10 linhas-20240902.csv:
 [Primeiras 10 linhas do arquivo de vendas]
 ```
+---
 ## 💡 **2. Script de Consolidador de Processamento de Vendas (consolidador_de_processamento_de_vendas.sh_)**
+
 
 ### Informações gerais
 
@@ -133,6 +135,7 @@ cat "$diretorio"/relatorio-*.txt > "$relatorio"
 ```
 - Utiliza o comando `cat` para concatenar todos os arquivos de relatório que seguem o padrão de nome `relatorio-*.txt`. O conteúdo de todos esses arquivos é combinado e salvo como `relatorio_final.txt`.
 
+---
 ## 💡 **3. Script Cron**
 - **Sistema Operacional:** Linux (Ubuntu)
 - **Autor:** Matheus de Souza Manzano
@@ -143,6 +146,8 @@ cat "$diretorio"/relatorio-*.txt > "$relatorio"
 27 15 * * * /home/matheus/ecommerce/processamento_de_vendas.sh
 ```
 - Define a data de execução do script `processamento_de_vendas.sh` para todos os dias as `15:27:00`.
+
+---
 ## Resultado
 O resultado final é o conjunto de dois scripts que trabalham para criar processo de análise e backup de dados de vendas. O primeiro script cuida da geração de backups e relatórios, O segundo script consolida esses relatórios em um único arquivo.
 
