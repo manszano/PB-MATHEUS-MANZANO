@@ -1,6 +1,7 @@
 <div>
-  <img src="https://github.com/user-attachments/assets/73ea4bd7-6f16-46e9-9907-68bdc4bb81ab" width="100%" alt="Banner">
+  <img src="https://github.com/user-attachments/assets/6f7f5908-d43a-4998-810d-9795301169a1" width="100%" alt="Banner">
 </div>
+
 
 
 ## 📝 **Instruções/Informações/Anotações**
