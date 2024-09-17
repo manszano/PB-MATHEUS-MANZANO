@@ -11,11 +11,9 @@ Desenvolver um projeto utilizando técnicas de modelagem de banco de dados relac
 
 - **Tarefas Realizadas:**  
   - **Normalização do Banco de Dados:**  
-    - Aplicação das formas normais (1NF, 2NF, 3NF) para criar um banco de dados relacional eficiente, eliminando redundâncias e garantindo a integridade dos dados.
+    - Aplicação das formas normais (1NF, 2NF, 3NF) para criar um banco de dados relacional eficiente.
   - **Criação do Modelo Dimensional:**  
-    - Construção de um modelo *Snowflake* para otimização de consultas analíticas, separando as tabelas de dimensão (cliente, carro, vendedor, combustível) e tabela fato (locação).
-  - **Adição da Tabela de Tempo:**
-    - Inclusão de uma nova dimensão para rastrear dados de tempo, como ano de locação, ano de entrega, etc.
+    - Construção de um modelo *Snowflake* para consultas analíticas, separando as tabelas de dimensão (cliente, carro, vendedor, combustível) e tabela fato (locação).
 
 ### **Anotações Importantes:**
 #### _Aprendizados:_
@@ -25,8 +23,8 @@ Desenvolver um projeto utilizando técnicas de modelagem de banco de dados relac
   - Aplicação da normalização e criação de chaves estrangeiras para relacionar as tabelas.
   - Otimização do modelo dimensional para suportar consultas analíticas.
 - **Soluções:**  
-  - Implementação de tabelas com chaves primárias e estrangeiras para garantir a integridade dos dados.
-  - Design do modelo *Snowflake* com foco em eficiência para consultas de análise de locações.
+  - Implementação de tabelas com chaves primárias e estrangeiras.
+  - Design do modelo relacional *Snowflake*.
 
 
 ---
