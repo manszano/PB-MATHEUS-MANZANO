@@ -201,8 +201,8 @@ CREATE TABLE dim_tempo (
 
 ### 💡 Vantagens do Modelo Dimensional:
 
-- **Performance Otimizada**: Consultas analíticas que exigem agregação de dados são muito mais rápidas.
-- **Facilidade para Relatórios**: A estrutura dimensional é ideal para gerar relatórios dinâmicos e dashboards, explorando dados de maneira granular.
+- **Performance Otimizada**: Consultas analíticas são mais rápidas.
+- **Facilidade para Relatórios**: A estrutura dimensional é ideal para gerar relatórios.
 
 ---
 
@@ -211,9 +211,8 @@ CREATE TABLE dim_tempo (
 Este desafio demonstrou a importância de:
 
 - **Normalização**: Evitar redundâncias e garantir a integridade dos dados através das formas normais.
-- **Modelo Dimensional**: Oferecer uma estrutura eficiente para consultas analíticas, essencial em ambientes de **Business Intelligence (BI)**.
+- **Modelo Dimensional**: Oferecer uma estrutura eficiente para consultas analíticas, essencial em **Business Intelligence (BI)**.
 
-Com essas etapas, o banco de dados está pronto tanto para operações transacionais quanto para análises complexas. 🚀
 
 ---
 
