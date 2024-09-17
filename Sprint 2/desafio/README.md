@@ -8,6 +8,7 @@
 # 📊  Desafio: Desafio de Modelagem de Dados
 
 Bem-vindo(a) ao **Desafio de Modelagem de Dados**, onde abordamos as etapas de **normalização** e a criação de um **modelo dimensional**. Aqui está o resumo dos passos que segui para transformar os dados
+
 ---
 
 ## 🛠️ Descrição Geral
