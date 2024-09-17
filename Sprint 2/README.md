@@ -274,58 +274,53 @@ ORDER BY
 ---
 ## **Desafios**
 
-Durante a sprint, realizamos o desafio `Ecommerce`
+Durante a sprint, realizamos o desafio de `Normalização de um banco de dados relacional e Criação de um modelo dimensional`
 
-1. **Tarefa 1**  
-   - **Objetivo:** Desenvolver um script para realizar o backup diário dos dados de vendas e gerar um relatório.
-   - **Observações:** Todo dia foi adcionado uma linha ao arquivo de dados, para popular os dados.
-   - **Resultado:** O script foi criado com sucesso.
+1. **Normalização de um banco de dados relacional**: Eliminar redundâncias e inconsistências, garantindo que as normalizalçoes sejam aplicadas corretamente.
+2. **Criação de um modelo dimensional**: Adaptar o modelo relacional para uma estrutura dimensional.
 
-2. **Tarefa 2:**  
-   - **Objetivo:** Criar um script para concatenar múltiplos relatórios em um único arquivo.
-   - **Resultado:** O script foi implementado, combinando todos os relatórios.
-  
-3. **Tarefa 3:**  
-   - **Objetivo:** Criar uma tarefa `cron` programada pra fazer execuções do script.
-   - **Resultado:** A tarefa foi executada com sucesso.
 
----
+## 🔄 Normalização do Modelo Relacional
 
-## 📸 **Evidências**
+### Passos Seguidos:
 
-### **Resultados:**
-Aqui estão as evidências do que foi realizado durante a sprint.
+1. **Entendimento da Tabela Inicial**: 
+   - A tabela inicial armazenava informações de clientes, carros, vendedores e combustíveis em uma única estrutura. Nosso primeiro passo foi identificar redundâncias.
 
-**Evidência 1:**\
-![image](https://github.com/user-attachments/assets/83ad4195-1d88-48b7-ba3f-ee4a72470b79)\
-![image](https://github.com/user-attachments/assets/b2406aaa-31b2-4367-a468-0a762863bbf3)
+2. **Aplicação das Formas Normais**:
+   - **1ª Forma Normal (1NF)**: Garantimos que todos os valores eram atômicos, eliminando grupos repetitivos.
+   - **2ª Forma Normal (2NF)**: Identificamos e removemos dependências parciais. Por exemplo, criamos tabelas para `Cliente`, `Carro`, `Vendedor`, etc.
+   - **3ª Forma Normal (3NF)**: Removemos dependências transitivas, como separar os dados de `Combustível` da tabela `Carro`.
 
-*Definição da crontab e execuções (utilizado comando `crontab -l)*
+### Diagrama após normalização:
+![Movie Database](https://github.com/user-attachments/assets/c32f2537-e3c4-4c58-98f8-c46585a2d298)
 
-**Evidência 2:**
-![image](https://github.com/user-attachments/assets/2ef1bb3f-4675-4640-ba3c-2638c5bbe3ee)\
-![image](https://github.com/user-attachments/assets/021ee065-26c3-48f4-8c69-ed7a87363b0d)\
-*Diretórios no linux*
 
-**Evidência 3:**\
-![image](https://github.com/user-attachments/assets/33c15df6-5332-43ba-9ba2-372c7abd3fbf)\
-*Relatório de dados*
+## 📈 Modelo Dimensional
 
-**Evidência 4:**\
-![image](https://github.com/user-attachments/assets/60ee75cc-fcbe-4351-8b31-9bd71ebe7f91)\
-*Script de execução 1*
+### 📋 Estrutura do Modelo:
 
-**Evidência 4:**\
-![image](https://github.com/user-attachments/assets/82c2cbca-b522-4cd6-b23d-42d4356ade98)\
-*Script de execução 2*
+O modelo dimensional segue o padrão **snowflake**, onde as dimensões são parcialmente normalizadas e conectadas à tabela de fatos. Isso facilita análises e consultas eficientes.
 
+- **Tabela Fato (Fato de Locações)**:
+  - Dados de locações, como quantidade de diárias, valor, e IDs de referência para as dimensões código:.
+- **Tabelas de Dimensões** código::
+  - **Dimensão Cliente**: `dim_cliente`
+  - **Dimensão Carro** código: `dim_carro`
+  - **Dimensão Vendedor** código: `dim_vendedor`
+  - **Dimensão Tempo** código: `dim_tempo` código:
+
+### 📊 Diagrama dimensional:
+![DimensionalDiagrama](https://github.com/user-attachments/assets/577c8432-39e9-4140-ad4f-91b0b1c57eeb)
 
 ---
 
 ## 🎓 **Certificados**
 
 ### **Certificados Conquistados Durante a Sprint:**
-Sem certificados
+
+![image](https://github.com/user-attachments/assets/4ee653cb-cb2e-4947-a1e6-22575743eb5a)
+![aws-partner-sales-accreditation](https://github.com/user-attachments/assets/6fef0082-71a0-4431-ac96-f89f3836ab10)
 
 ---
 
