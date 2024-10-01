@@ -1,154 +1,115 @@
 <div>
-  <img src="https://github.com/user-attachments/assets/80bce710-ada7-4fe1-a4b2-8343a4ac8529" width="100%" alt="Banner">
+  <img src="https://github.com/user-attachments/assets/7bad38b5-9a4f-4a79-a606-95c9701d737a" width="100%" alt="Banner">
 </div>
 
+
 &nbsp;
-# Desafio: Ecommerce
+# 📱 Análise de Aplicativos do Google Play Store
 
-### 1. Estrutura do Projeto
-Estrutura dos diretórios do projeto.
-```
-ecommerce/
-│
-├── vendas/
-│   └── backup/
-│       ├── (Arquivos de backup e relatórios)
-│
-└── dados_de_vendas.csv (Arquivo de vendas original)
-└── processamento_de_vendas.sh
-└── consolidados_de_processamento_de_vendas.sh
-```
-### Scripts:
-1. [processamento_de_vendas.sh](https://github.com/manszano/PB-MATHEUS-MANZANO/blob/main/Sprint%201/desafio/etapa-1/ecommerce/processamento_de_vendas.sh)
-2. [consolidados_de_processamento_de_vendas.sh](https://github.com/manszano/PB-MATHEUS-MANZANO/blob/main/Sprint%201/desafio/etapa-1/ecommerce/consolidador_de_processamento_de_vendas.sh)
+Bem-vindo ao projeto de análise de dados dos aplicativos disponíveis no Google Play Store! 🎉 Neste projeto, exploramos o dataset `googleplaystore.csv` e realizamos diversas operações de análise para obter insights interessantes sobre os aplicativos, tais como número de instalações, avaliações, categorias mais populares e muito mais! 🚀
 
----
-## 💡 **1. Script de Backup e Processamento de Vendas (_processamento_de_vendas.sh_)**
+## 📂 Estrutura do Projeto
 
-### Informações gerais
+O código está organizado em várias etapas, conforme descrito abaixo:
 
-- **Linguagem utilizada:** Bash
-- **Sistema Operacional:** Linux (Ubuntu)
-- **Autor:** Matheus de Souza Manzano
-- **Localização do script:** `/etapa1/ecommerce/`
-- **Objetivo:**  Geração de relatórios.
-- **Dependências:** Nenhuma, bash vanilla
-- **Entrada de dados:** Arquivo CSV (`dados_de_vendas.csv`) localizado no diretório `/etapa1/ecommerce/`
-- **Saída de dados:**
-  - Arquivo de backup compactado (`backup-dados-YYYYMMDD.zip`)
-  - Relatório em texto (`relatorio-YYYYMMDD.txt`)
+### 1. Importação das bibliotecas
 
-### Passo a passo do script
-### 1. Definição de Variáveis
-No início do script, as variáveis são configuradas para definir os caminhos para os arquivos:
+Começamos com a importação das bibliotecas essenciais para manipulação de dados e visualização de gráficos:
 
-```bash
-diretorio="/home/matheus/ecommerce"
-pasta_vendas="$diretorio/vendas"
-pasta_backup="$pasta_vendas/backup"
-data_agora=$(date +"%Y%m%d")
-```
-- `diretorio`: Caminho do diretório principal onde os dados de vendas estão localizados.
-- `pasta_vendas`: Diretório onde o arquivo de vendas está armazenado.
-- `pasta_backup`: Diretório onde os backups serão armazenados.
-- `data_agora`: Data atual no formato `YYYYMMDD`, usada para dar nome aos de backup.
-
-### 2. Cópia do Arquivo de Vendas
-O script faz uma cópia do arquivo de vendas e renomeia essa cópia para indicar que é um backup:
-```bash
-cp "$diretorio/dados_de_vendas.csv" "$pasta_backup/dados-$data_agora.csv"
-mv "$pasta_backup/dados-$data_agora.csv" "$pasta_backup/backup-dados-$data_agora.csv"
-```
-- **Cópia:** Cria uma cópia do arquivo de vendas com a data no nome.
-- **Renomeação:** Renomeia o arquivo copiado para backup.
-
-### 3. Geração de Relatório
-O script então gera um relatório com informações sobre o arquivo de vendas:
-```bash
-{
-    echo "data: $(date +"%Y/%m/%d %H:%M")"
-    echo "primeiro registro de venda: $(awk -F, 'NR==2 {print $5}' "$pasta_backup/backup-dados-$data_agora.csv")"
-    echo "ultimo registro de venda: $(awk -F, 'END {print $5}' "$pasta_backup/backup-dados-$data_agora.csv")"
-    echo "total de itens diferentes vendidos: $(awk -F, '{print $2}' "$pasta_backup/backup-dados-$data_agora.csv" | tail -n +2 | sort | uniq | wc -l)"
-    echo "Primeiras 10 linhas-$data_agora.csv:"
-    head -n 10 "$pasta_backup/backup-dados-$data_agora.csv"
-} > "$pasta_backup/relatorio-$data_agora.txt"
-```
-Esse código gera um relatório com:
-- **Data e hora do backup.**
-- **Primeiro e último registro de venda.** utilizando o `awk`
-- **Total de itens diferentes vendidos.** utilizando o `awk`
-- **As primeiras 10 linhas do arquivo de vendas.** `-n 10`
-
-### 4. Compactação do Arquivo de Backup
-O arquivo de vendas é compactado em um arquivo `.zip` para economizar espaço:
-```bash
-zip "$pasta_backup/backup-dados-$data_agora.zip" "$pasta_backup/backup-dados-$data_agora.csv"
-```
-### 5. Remoção de Arquivos Temporários
-logo depois da compactação, os arquivos csv originais são removidos para liberar espaço:
-```bash
-rm "$pasta_backup/backup-dados-$data_agora.csv"
-rm "$pasta_vendas/dados_de_vendas.csv"
-```
-###  Exemplo de Saída
-Relatório feito pelo script:
-```txt
-data: 2024/09/02 14:30
-primeiro registro de venda: [Detalhes do primeiro registro]
-ultimo registro de venda: [Detalhes do último registro]
-total de itens diferentes vendidos: 10
-Primeiras 10 linhas-20240902.csv:
-[Primeiras 10 linhas do arquivo de vendas]
-```
----
-## 💡 **2. Script de Consolidador de Processamento de Vendas (consolidador_de_processamento_de_vendas.sh_)**
-
-
-### Informações gerais
-
-- **Linguagem utilizada:** Bash
-- **Sistema Operacional:** Linux (Ubuntu)
-- **Autor:** Matheus de Souza Manzano
-- **Localização do script:** `/etapa1/ecommerce/`
-- **Objetivo:** Gerar um arquivo com todos os relatórios concatenados.
-- **Dependências:** Nenhuma, bash vanilla
-- **Entrada de dados:** Arquivo CSV (`relatorio.txt`) localizado no diretório `/etapa1/ecommerce/vendas/backup`
-- **Saída de dados:**
-  - Relatório em texto (`relatoriofinal.txt`)
-
-### Passo a passo do script
-### 1. Definição do Diretório
-   ```bash
-   diretorio="./vendas/backup"
-```
-- Define o diretório onde os arquivos de relatório estão.
-
-### 2. Definição do Arquivo Final:
-```bash
-relatorio="$diretorio/relatorio_final.txt"
+```python
+import pandas as pd
+import matplotlib.pyplot as plt
 ```
 
-### 3. Concatenar Relatórios
-```bash
-cat "$diretorio"/relatorio-*.txt > "$relatorio"
-```
-- Utiliza o comando `cat` para concatenar todos os arquivos de relatório que seguem o padrão de nome `relatorio-*.txt`. O conteúdo de todos esses arquivos é combinado e salvo como `relatorio_final.txt`.
+### 2. Leitura do dataset
 
----
-## 💡 **3. Script Cron**
-- **Sistema Operacional:** Linux (Ubuntu)
-- **Autor:** Matheus de Souza Manzano
-- **Objetivo:** Criar uma tarefa cron que executa diariamente o `processamento_de_vendas.sh`.
-### Informações gerais
-### 1. Definição Tarefa cron
-```bash
-27 15 * * * /home/matheus/ecommerce/processamento_de_vendas.sh
-```
-- Define a data de execução do script `processamento_de_vendas.sh` para todos os dias as `15:27:00`.
+O arquivo `googleplaystore.csv` é lido e carregado em um DataFrame pandas para ser manipulado:
 
----
-## Resultado
-O resultado final é o conjunto de dois scripts que trabalham para criar processo de análise e backup de dados de vendas. O primeiro script cuida da geração de backups e relatórios, O segundo script consolida esses relatórios em um único arquivo.
+```python
+df = pd.read_csv('googleplaystore.csv')
+```
+
+### 3. Limpeza de dados
+
+Para garantir a consistência dos dados, realizamos a remoção de linhas duplicadas:
+
+```python
+df_limpo = df.drop_duplicates()
+```
+
+### 4. Gráficos 📊
+
+Diversos gráficos são gerados para visualizar os dados de forma clara e informativa:
+
+#### Top 5 Apps por Número de Instalações (em bilhões):
+
+Um gráfico de barras exibe os 5 aplicativos mais instalados.
+
+```python
+top_5_apps = df_limpo.nlargest(5, 'Installs')[['App', 'Installs']]
+plt.bar(top_5_apps['App'], top_5_apps['Installs'])
+```
+
+#### Distribuição de Categorias dos Apps:
+
+Um gráfico de pizza mostra a proporção das categorias dos aplicativos.
+
+```python
+plt.pie(categorias_frequencia, labels=categorias_frequencia.index)
+```
+
+### 5. Análise Estatística 🔍
+
+Realizamos várias análises descritivas, como:
+
+#### App mais caro:
+
+Descobrimos qual o aplicativo mais caro disponível na loja.
+
+```python
+app_mais_caro = df.loc[df['Price'].idxmax()][['App', 'Price']]
+```
+
+#### Número de apps classificados como "Mature 17+":
+
+Verificamos quantos aplicativos possuem classificação indicativa "Mature 17+".
+
+```python
+quantidade_mature = df[df['Content Rating'] == 'Mature 17+'].shape[0]
+```
+
+#### Top 10 apps por número de reviews:
+
+Um gráfico de barras mostra os 10 aplicativos com mais avaliações.
+
+```python
+plt.bar(top_10_reviews['App'], top_10_reviews['Reviews'])
+```
+
+### 6. Outras Análises Gráficas 📈
+
+Além dos gráficos já mencionados, criamos outras visualizações para analisar diferentes aspectos dos dados:
+
+#### Dispersão entre Tamanho do Aplicativo e Número de Instalações:
+
+Um gráfico de dispersão mostra a relação entre o tamanho do aplicativo e o número de instalações.
+
+```python
+plt.scatter(df['Size_MB'], df['Installs'])
+```
+
+#### Média de Avaliação por Gênero:
+
+Visualizamos a média das avaliações por gênero de aplicativo através de um gráfico de linhas.
+
+```python
+plt.plot(media_avaliacao_por_genero['Genres'], media_avaliacao_por_genero['Rating'])
+```
+
+
+## 📈 Conclusão
+
+Este projeto oferece uma análise detalhada dos aplicativos do Google Play Store, com diversas visualizações que facilitam a compreensão dos padrões e tendências dos aplicativos mais populares. Não deixe de explorar os gráficos interativos e tirar suas próprias conclusões! 😊
+
 
 ![bottom](https://github.com/user-attachments/assets/a06b7240-a4be-45d7-86e7-9427136b3891)
