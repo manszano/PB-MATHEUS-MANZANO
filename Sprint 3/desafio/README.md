@@ -6,7 +6,9 @@
 &nbsp;
 # 📱 Análise de Aplicativos do Google Play Store
 
-Bem-vindo ao projeto de análise de dados dos aplicativos disponíveis no Google Play Store! 🎉 Neste projeto, exploramos o dataset `googleplaystore.csv` e realizamos diversas operações de análise para obter insights interessantes sobre os aplicativos, tais como número de instalações, avaliações, categorias mais populares e muito mais! 🚀
+Bem-vindo ao projeto de análise de dados dos aplicativos disponíveis no Google Play Store! 🎉 Neste projeto, exploramos o dataset `googleplaystore.csv` e realizamos diversas operações de análise para obter insights interessantes sobre os aplicativos, tais como número de instalações, avaliações, categorias mais populares e muito mais! 
+
+#Para visualização dos gráficos utilize o arquivo _Desafio.ipynb_ na sub-asta Jupyter ou nessa pasta mesmo!
 
 ## 📂 Estrutura do Projeto
 
@@ -86,10 +88,6 @@ Um gráfico de barras mostra os 10 aplicativos com mais avaliações.
 plt.bar(top_10_reviews['App'], top_10_reviews['Reviews'])
 ```
 
-### 6. Outras Análises Gráficas 📈
-
-Além dos gráficos já mencionados, criamos outras visualizações para analisar diferentes aspectos dos dados:
-
 #### Dispersão entre Tamanho do Aplicativo e Número de Instalações:
 
 Um gráfico de dispersão mostra a relação entre o tamanho do aplicativo e o número de instalações.
@@ -109,7 +107,6 @@ plt.plot(media_avaliacao_por_genero['Genres'], media_avaliacao_por_genero['Ratin
 
 ## 📈 Conclusão
 
-Este projeto oferece uma análise detalhada dos aplicativos do Google Play Store, com diversas visualizações que facilitam a compreensão dos padrões e tendências dos aplicativos mais populares. Não deixe de explorar os gráficos interativos e tirar suas próprias conclusões! 😊
-
+Gostei muito desse desafio, realmente me ajudo a trabalhar o matplotlib e o python!
 
 ![bottom](https://github.com/user-attachments/assets/a06b7240-a4be-45d7-86e7-9427136b3891)
