@@ -483,6 +483,7 @@ csv = 'actors.csv'
 ator, quantidade_filmes = encontrar_ator_maior_numero_filmes(csv)
 exibir_em_colunas(ator, quantidade_filmes)
 ```
+---
 ### **Etapa 2: Média de Receita Bruta dos Principais Filmes**
 - **Objetivo:** Calcular a média de receita bruta dos principais filmes considerando todos os atores.
 - **Processamento:** 
@@ -523,6 +524,7 @@ csv = 'actors.csv'
 media_receita = calcular_media_receita_bilheteria(csv)
 exibir_media_em_colunas(media_receita)
 ```
+---
 ### **Etapa 3: Ator/Atriz com Maior Média de Receita Bruta por Filme**
 - **Objetivo:** Identificar o ator ou atriz com a maior média de receita bruta por filme.
 - **Processamento:** 
@@ -565,6 +567,7 @@ csv = 'actors.csv'
 ator, media_receita = encontrar_ator_maior_media_receita(csv)
 exibir_ator_maior_media_em_colunas(ator, media_receita)
 ```
+---
 ### **Etapa 4: Contagem de Aparições dos Filmes de Maior Bilheteria**
 - **Objetivo:** Contar as aparições dos filmes de maior bilheteria, presentes na coluna `#1 Movie`.
 - **Processamento:** 
@@ -602,7 +605,7 @@ contagem_filmes = contar_aparicoes_filmes(csv)
 escrever_resultados(contagem_filmes, caminho_saida)
 ```
 - **Resultado:** O formato de saída foi "O filme (nome do filme) aparece (quantidade) vez(es) no dataset", e os resultados foram armazenados no arquivo `resultados_filmes.txt`.
-
+---
 ### **Etapa 5: Lista de Atores Ordenada pela Receita Bruta de Seus Filmes**
 - **Objetivo:** Apresentar a lista de atores ordenada pela receita bruta total de seus filmes.
 - **Processamento:** 
@@ -644,11 +647,11 @@ escrever_atores_receita(atores_receita_ordenados, caminho_saida)
 - **Resultado:** O formato de saída foi "(nome do ator) - (receita total bruta)", e os resultados foram salvos no arquivo `atores_por_receita.txt`.
 
 ---
-## **Desafios**
+## **Desafio**
 
 Durante a sprint, realizamos desafio em análise de dados.
 
-2. **Desafio 1: Análise de Dados com googleplaystore.csv**  
+1. **Desafio 1: Análise de Dados com googleplaystore.csv**  
    - **Objetivo:** Realizar a análise de dados do arquivo `googleplaystore.csv` utilizando as bibliotecas `Pandas` e `Matplotlib`.
    - **Atividades Realizadas:**  
      1. Leitura e remoção de duplicatas do dataset.
