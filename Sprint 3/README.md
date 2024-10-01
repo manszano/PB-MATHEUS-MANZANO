@@ -7,7 +7,7 @@
 ## 📝 **Instruções/Informações/Anotações**
 
 ### **Objetivo da Sprint:**
-Desenvolver um projeto de ETL utilizando Python para manipulação de dados a partir de arquivos CSV. O desafio envolve duas partes principais: processamento de dados do arquivo *actors.csv* e análise de dados do arquivo *googleplaystore.csv*.
+Desenvolver um projeto de Ánalise de dados utilizando Python para manipulação de dados a partir de arquivos CSV. O desafio envolve duas partes principais: processamento de dados do arquivo *actors.csv* e análise de dados do arquivo *googleplaystore.csv*.
 
 - **Tarefas Realizadas:**  
   - **Processamento ETL do arquivo actors.csv:**
