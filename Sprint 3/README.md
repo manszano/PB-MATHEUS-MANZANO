@@ -437,22 +437,51 @@ for aviao in avioes:
           f"capacidade para \"{aviao.capacidade}\" passageiros e é da cor \"{aviao.cor}\".")
 
 ```
+## 📝 **Exercicios ETL**
+
+Durante o desenvolvimento do desafio, segui as seguintes etapas para processar o arquivo `actors.csv` e obter as informações solicitadas.
+
+### **Etapa 1: Ator/Atriz com Maior Número de Filmes**
+- **Objetivo:** Apresentar o ator/atriz com o maior número de filmes e a respectiva quantidade de filmes.
+- **Processamento:** 
+  - A partir da coluna `Number of movies`, percorri o dataset para identificar qual ator ou atriz possuía o maior número de filmes.
+  - O resultado foi o nome do ator/atriz com o maior número de participações, juntamente com a quantidade de filmes.
+- **Resultado:** O nome do ator/atriz com mais filmes e o número correspondente foram salvos no arquivo `etapa-1.txt`.
+
+### **Etapa 2: Média de Receita Bruta dos Principais Filmes**
+- **Objetivo:** Calcular a média de receita bruta dos principais filmes considerando todos os atores.
+- **Processamento:** 
+  - Utilizei a coluna `Gross` para calcular a média de receita bruta entre todos os registros de filmes no dataset.
+  - Esse valor representa o valor médio bruto arrecadado pelos principais filmes do conjunto de dados.
+- **Resultado:** A média foi calculada e armazenada no arquivo `etapa-2.txt`.
+
+### **Etapa 3: Ator/Atriz com Maior Média de Receita Bruta por Filme**
+- **Objetivo:** Identificar o ator ou atriz com a maior média de receita bruta por filme.
+- **Processamento:** 
+  - A partir da coluna `Average per Movie`, analisei o dataset para calcular a média de bilheteria por filme de cada ator.
+  - Com esses dados, determinei qual ator/atriz possui a maior média de bilheteria entre todos os filmes que participou.
+- **Resultado:** O nome do ator/atriz com a maior média de bilheteria por filme foi salvo no arquivo `etapa-3.txt`.
+
+### **Etapa 4: Contagem de Aparições dos Filmes de Maior Bilheteria**
+- **Objetivo:** Contar as aparições dos filmes de maior bilheteria, presentes na coluna `#1 Movie`.
+- **Processamento:** 
+  - Realizei uma contagem de quantas vezes cada filme presente na coluna `#1 Movie` aparece no dataset.
+  - Ordenei os resultados de forma decrescente pelo número de aparições e, em caso de empate, ordenei alfabeticamente pelo nome do filme.
+- **Resultado:** O formato de saída foi "O filme (nome do filme) aparece (quantidade) vez(es) no dataset", e os resultados foram armazenados no arquivo `etapa-4.txt`.
+
+### **Etapa 5: Lista de Atores Ordenada pela Receita Bruta de Seus Filmes**
+- **Objetivo:** Apresentar a lista de atores ordenada pela receita bruta total de seus filmes.
+- **Processamento:** 
+  - Utilizei a coluna `Total Gross` para calcular a receita total bruta de todos os filmes de cada ator.
+  - A lista de atores foi então ordenada em ordem decrescente com base na receita bruta total.
+- **Resultado:** O formato de saída foi "(nome do ator) - (receita total bruta)", e os resultados foram salvos no arquivo `etapa-5.txt`.
 
 ---
 ## **Desafios**
 
-Durante a sprint, realizamos dois desafios de ETL e análise de dados.
+Durante a sprint, realizamos desafio em análise de dados.
 
-1. **Desafio 1: Processamento de ETL com actors.csv**  
-   - **Objetivo:** Aplicar os fundamentos de ETL (Extract-Transform-Load) no arquivo `actors.csv` em 5 etapas distintas, armazenando as saídas em arquivos de texto.
-   - **Etapas Realizadas:**  
-     - Criação de 5 arquivos `.txt` (etapa-1.txt, etapa-2.txt, etc.) para armazenar as respostas de cada parte do processamento.
-     - Leitura e extração de dados do arquivo `actors.csv`.
-     - Transformação dos dados conforme as perguntas orientadoras.
-     - Armazenamento das respostas obtidas nos respectivos arquivos.
-   - **Resultado:** Todas as etapas foram concluídas, e as respostas foram salvas com sucesso.
-
-2. **Desafio 2: Análise de Dados com googleplaystore.csv**  
+2. **Desafio 1: Análise de Dados com googleplaystore.csv**  
    - **Objetivo:** Realizar a análise de dados do arquivo `googleplaystore.csv` utilizando as bibliotecas `Pandas` e `Matplotlib`.
    - **Atividades Realizadas:**  
      1. Leitura e remoção de duplicatas do dataset.
