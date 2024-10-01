@@ -446,35 +446,202 @@ Durante o desenvolvimento do desafio, segui as seguintes etapas para processar o
 - **Processamento:** 
   - A partir da coluna `Number of movies`, percorri o dataset para identificar qual ator ou atriz possuía o maior número de filmes.
   - O resultado foi o nome do ator/atriz com o maior número de participações, juntamente com a quantidade de filmes.
-- **Resultado:** O nome do ator/atriz com mais filmes e o número correspondente foram salvos no arquivo `etapa-1.txt`.
+```python
+def encontrar_ator_maior_numero_filmes(csv):
+    maior_numero_filmes = 0
+    ator_com_mais_filmes = ""
 
+    with open(csv, 'r', encoding='utf-8') as arquivo:
+        linhas = arquivo.readlines()
+        cabecalho = linhas[0].strip().split(',')
+        dados = linhas[1:]
+        
+        for linha in dados:
+            colunas = [coluna.strip() for coluna in linha.split(',')]
+            nome_ator = colunas[0]
+            try:
+                numero_filmes = int(colunas[2])
+            except ValueError:
+                continue
+            
+            if numero_filmes > maior_numero_filmes:
+                maior_numero_filmes = numero_filmes
+                ator_com_mais_filmes = nome_ator
+
+    return ator_com_mais_filmes, maior_numero_filmes
+
+def exibir_em_colunas(ator, numero_filmes):
+    largura_nome = 20
+    largura_filmes = 10
+    
+    print(f"{'Ator/Atriz'.ljust(largura_nome)}{'Número de Filmes'.ljust(largura_filmes)}")
+    print("-" * (largura_nome + largura_filmes))
+    print(f"{ator.ljust(largura_nome)}{str(numero_filmes).ljust(largura_filmes)}")
+
+csv = 'actors.csv'
+
+ator, quantidade_filmes = encontrar_ator_maior_numero_filmes(csv)
+exibir_em_colunas(ator, quantidade_filmes)
+```
 ### **Etapa 2: Média de Receita Bruta dos Principais Filmes**
 - **Objetivo:** Calcular a média de receita bruta dos principais filmes considerando todos os atores.
 - **Processamento:** 
   - Utilizei a coluna `Gross` para calcular a média de receita bruta entre todos os registros de filmes no dataset.
   - Esse valor representa o valor médio bruto arrecadado pelos principais filmes do conjunto de dados.
-- **Resultado:** A média foi calculada e armazenada no arquivo `etapa-2.txt`.
+```python
+def calcular_media_receita_bilheteria(csv):
+    total_receita = 0
+    quantidade_atores = 0
+    with open(csv, 'r', encoding='utf-8') as arquivo:
+        linhas = arquivo.readlines()
+        cabecalho = linhas[0].strip().split(',')
+        dados = linhas[1:]
+        
+        for linha in dados:
+            colunas = [coluna.strip() for coluna in linha.split(',')]
+            try:
+                receita_bilheteria = float(colunas[5])
+                total_receita += receita_bilheteria
+                quantidade_atores += 1
+            except ValueError:
+                continue
 
+    if quantidade_atores == 0:
+        return 0
+    else:
+        return total_receita / quantidade_atores
+
+def exibir_media_em_colunas(media_receita):
+    largura_titulo = 30
+    largura_valor = 15
+    print(f"{'Média da Receita Bruta dos Principais Filmes'.ljust(largura_titulo)}{'Valor'.ljust(largura_valor)}")
+    print("-" * (largura_titulo + largura_valor))
+    print(f"{'Média por Ator/Atriz'.ljust(largura_titulo)}{f'${media_receita:.2f} milhões'.ljust(largura_valor)}")
+
+csv = 'actors.csv'
+
+media_receita = calcular_media_receita_bilheteria(csv)
+exibir_media_em_colunas(media_receita)
+```
 ### **Etapa 3: Ator/Atriz com Maior Média de Receita Bruta por Filme**
 - **Objetivo:** Identificar o ator ou atriz com a maior média de receita bruta por filme.
 - **Processamento:** 
   - A partir da coluna `Average per Movie`, analisei o dataset para calcular a média de bilheteria por filme de cada ator.
   - Com esses dados, determinei qual ator/atriz possui a maior média de bilheteria entre todos os filmes que participou.
-- **Resultado:** O nome do ator/atriz com a maior média de bilheteria por filme foi salvo no arquivo `etapa-3.txt`.
+```python
+def encontrar_ator_maior_media_receita(csv):
+    maior_media_receita = 0
+    ator_com_maior_media = ""
 
+    with open(csv, 'r', encoding='utf-8') as arquivo:
+        linhas = arquivo.readlines()
+        cabecalho = linhas[0].strip().split(',')
+        dados = linhas[1:]
+        
+        for linha in dados:
+            colunas = [coluna.strip() for coluna in linha.split(',')]
+            try:
+                media_receita = float(colunas[3])
+                nome_ator = colunas[0]
+                
+                if media_receita > maior_media_receita:
+                    maior_media_receita = media_receita
+                    ator_com_maior_media = nome_ator
+            except ValueError:
+                continue
+
+    return ator_com_maior_media, maior_media_receita
+
+def exibir_ator_maior_media_em_colunas(ator, media_receita):
+    largura_nome = 20
+    largura_media = 15
+    
+    print(f"{'Ator/Atriz'.ljust(largura_nome)}{'Média de Receita por Filme'.ljust(largura_media)}")
+    print("-" * (largura_nome + largura_media))
+    print(f"{ator.ljust(largura_nome)}{f'${media_receita:.2f} milhões'.ljust(largura_media)}")
+
+csv = 'actors.csv'
+
+ator, media_receita = encontrar_ator_maior_media_receita(csv)
+exibir_ator_maior_media_em_colunas(ator, media_receita)
+```
 ### **Etapa 4: Contagem de Aparições dos Filmes de Maior Bilheteria**
 - **Objetivo:** Contar as aparições dos filmes de maior bilheteria, presentes na coluna `#1 Movie`.
 - **Processamento:** 
   - Realizei uma contagem de quantas vezes cada filme presente na coluna `#1 Movie` aparece no dataset.
   - Ordenei os resultados de forma decrescente pelo número de aparições e, em caso de empate, ordenei alfabeticamente pelo nome do filme.
-- **Resultado:** O formato de saída foi "O filme (nome do filme) aparece (quantidade) vez(es) no dataset", e os resultados foram armazenados no arquivo `etapa-4.txt`.
+```python
+from collections import Counter
+
+def contar_aparicoes_filmes(csv):
+    contagem_filmes = Counter()
+
+    with open(csv, 'r', encoding='utf-8') as arquivo:
+        linhas = arquivo.readlines()
+        cabecalho = linhas[0].strip().split(',')
+        dados = linhas[1:]
+
+        for linha in dados:
+            colunas = [coluna.strip() for coluna in linha.split(',')]
+            filme = colunas[4]  # Coluna '#1 Movie'
+            contagem_filmes[filme] += 1
+
+    return contagem_filmes
+
+def escrever_resultados(contagem_filmes, caminho_saida):
+    filmes_ordenados = sorted(contagem_filmes.items(), key=lambda x: (-x[1], x[0]))
+
+    with open(caminho_saida, 'w', encoding='utf-8') as arquivo_saida:
+        for filme, quantidade in filmes_ordenados:
+            arquivo_saida.write(f"O filme ({filme}) aparece {quantidade} vezes no dataset\n")
+
+csv = 'actors.csv'
+caminho_saida = 'resultados_filmes.txt'
+
+contagem_filmes = contar_aparicoes_filmes(csv)
+escrever_resultados(contagem_filmes, caminho_saida)
+```
+- **Resultado:** O formato de saída foi "O filme (nome do filme) aparece (quantidade) vez(es) no dataset", e os resultados foram armazenados no arquivo `resultados_filmes.txt`.
 
 ### **Etapa 5: Lista de Atores Ordenada pela Receita Bruta de Seus Filmes**
 - **Objetivo:** Apresentar a lista de atores ordenada pela receita bruta total de seus filmes.
 - **Processamento:** 
   - Utilizei a coluna `Total Gross` para calcular a receita total bruta de todos os filmes de cada ator.
   - A lista de atores foi então ordenada em ordem decrescente com base na receita bruta total.
-- **Resultado:** O formato de saída foi "(nome do ator) - (receita total bruta)", e os resultados foram salvos no arquivo `etapa-5.txt`.
+```python
+def listar_atores_por_receita(csv):
+    atores_receita = []
+
+    with open(csv, 'r', encoding='utf-8') as arquivo:
+        linhas = arquivo.readlines()
+        cabecalho = linhas[0].strip().split(',')
+        dados = linhas[1:]
+
+        for linha in dados:
+            colunas = [coluna.strip() for coluna in linha.split(',')]
+            nome_ator = colunas[0]
+            try:
+                receita_total = float(colunas[1])  # Coluna 'Total Gross'
+                atores_receita.append((nome_ator, receita_total))
+            except ValueError:
+                continue
+
+    atores_receita_ordenados = sorted(atores_receita, key=lambda x: -x[1])
+
+    return atores_receita_ordenados
+
+def escrever_atores_receita(atores_receita_ordenados, caminho_saida):
+    with open(caminho_saida, 'w', encoding='utf-8') as arquivo_saida:
+        for ator, receita in atores_receita_ordenados:
+            arquivo_saida.write(f"{ator} - ${receita:.2f} milhões\n")
+
+csv = 'actors.csv'
+caminho_saida = 'atores_por_receita.txt'
+
+atores_receita_ordenados = listar_atores_por_receita(csv)
+escrever_atores_receita(atores_receita_ordenados, caminho_saida)
+```
+- **Resultado:** O formato de saída foi "(nome do ator) - (receita total bruta)", e os resultados foram salvos no arquivo `atores_por_receita.txt`.
 
 ---
 ## **Desafios**
