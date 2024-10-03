@@ -2,6 +2,11 @@
   <img src="https://github.com/user-attachments/assets/c2fd8287-fc6a-47a5-a634-f26610ab4b93" width="100%" alt="Banner">
 </div>
 
+### Arquivos da sprint
+[Desafio](https://github.com/manszano/PB-MATHEUS-MANZANO/tree/main/Sprint%203/desafio/Jupyter)
+[Exercicios](https://github.com/manszano/PB-MATHEUS-MANZANO/tree/main/Sprint%203/exercicios)
+[Evidências](https://github.com/manszano/PB-MATHEUS-MANZANO/tree/main/Sprint%203/evidencias)
+[Certificados](https://github.com/manszano/PB-MATHEUS-MANZANO/tree/main/Sprint%203/certificados)
 
 
 ## 📝 **Instruções/Informações/Anotações**
