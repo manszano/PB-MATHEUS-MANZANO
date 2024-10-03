@@ -34,6 +34,7 @@ Desenvolver um projeto de Ánalise de dados utilizando Python para manipulação
 
 ---
 ## **Exercícios**
+Diretório: [Exercicios Udemy](https://github.com/manszano/PB-MATHEUS-MANZANO/blob/main/Sprint%203/exercicios/exercicios-udemy.py)
 ### E01
 ```python
 nome = "MATHEUS"
