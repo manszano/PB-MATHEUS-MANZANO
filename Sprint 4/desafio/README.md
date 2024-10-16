@@ -1,112 +1,132 @@
 <div>
-  <img src="https://github.com/user-attachments/assets/7bad38b5-9a4f-4a79-a606-95c9701d737a" width="100%" alt="Banner">
+  <img src="https://github.com/user-attachments/assets/edad59cc-91e0-4a9e-b7eb-ad849e931a45" width="100%" alt="Banner">
 </div>
 
-
 &nbsp;
-# 📱 Análise de Aplicativos do Google Play Store
+# 🐳 Desafio Docker: Aplicações com Imagens Docker
 
-Bem-vindo ao projeto de análise de dados dos aplicativos disponíveis no Google Play Store! 🎉 Neste projeto, exploramos o dataset `googleplaystore.csv` e realizamos diversas operações de análise para obter insights interessantes sobre os aplicativos, tais como número de instalações, avaliações, categorias mais populares e muito mais! 
+Bem-vindo ao projeto de criação de imagens Docker para a execução de scripts Python e interações com contêineres! 🎉 Nesssa sprint, exploramos o uso de Docker para criar e gerenciar contêineres, automatizar a execução de scripts, e implementar um algoritimo com hashes SHA-1. 
 
-#Para visualização dos gráficos utilize o arquivo _Desafio.ipynb_ na sub-asta Jupyter ou nessa pasta mesmo!
+#Para visualização e execução dos contêineres, utilize o Dockerfile e os scripts fornecidos!
 
 ## 📂 Estrutura do Projeto
 
-O código está organizado em várias etapas, conforme descrito abaixo:
+O projeto está organizado em várias etapas, conforme descrito abaixo:
 
-### 1. Importação das bibliotecas
+### 1. Dockerfile para a Aplicação `carguru.py`
 
-Começamos com a importação das bibliotecas essenciais para manipulação de dados e visualização de gráficos:
+Neste primeiro passo, criamos um **Dockerfile** para executar o script `carguru.py` dentro de um contêiner Docker.
 
-```python
-import pandas as pd
-import matplotlib.pyplot as plt
+#### Dockerfile:
+
+```dockerfile
+# Usando a imagem base do Python 3.9
+FROM python:3.9
+
+# Definindo o diretório de trabalho
+WORKDIR /app
+
+# Copiando o script Python para o contêiner
+COPY carguru.py .
+
+# Definindo o comando padrão para rodar o script
+CMD ["python", "carguru.py"]
 ```
 
-### 2. Leitura do dataset
+#### Comandos para Construir e Executar a Imagem:
 
-O arquivo `googleplaystore.csv` é lido e carregado em um DataFrame pandas para ser manipulado:
+- Construir a imagem Docker:
 
-```python
-df = pd.read_csv('googleplaystore.csv')
+```bash
+docker build -t carguru-image .
 ```
 
-### 3. Limpeza de dados
+- Executar o contêiner criado a partir da imagem:
 
-Para garantir a consistência dos dados, realizamos a remoção de linhas duplicadas:
-
-```python
-df_limpo = df.drop_duplicates()
+```bash
+docker run --name carguru-container carguru-image
 ```
 
-### 4. Gráficos 📊
+### 2. Reutilização de Contêineres
 
-Diversos gráficos são gerados para visualizar os dados de forma clara e informativa:
+- Sim é possivel reutilizar contâineres!
+- Aprendemos a reutilizar contêineres já criados para evitar a necessidade de criar novos contêineres a cada execução.
 
-#### Top 5 Apps por Número de Instalações (em bilhões):
+#### Comando para Reiniciar Contêiner Parado:
 
-Um gráfico de barras exibe os 5 aplicativos mais instalados.
+- Reiniciar o contêiner existente:
 
-```python
-top_5_apps = df_limpo.nlargest(5, 'Installs')[['App', 'Installs']]
-plt.bar(top_5_apps['App'], top_5_apps['Installs'])
+```bash
+docker start carguru-container
 ```
 
-#### Distribuição de Categorias dos Apps:
+#### Remover Contêiner:
 
-Um gráfico de pizza mostra a proporção das categorias dos aplicativos.
+- Para remover contêineres antigos e liberar o nome:
 
-```python
-plt.pie(categorias_frequencia, labels=categorias_frequencia.index)
+```bash
+docker rm carguru-container
 ```
 
-### 5. Análise Estatística 🔍
+### 3. Script de Mascaramento de Dados com Hash SHA-1
 
-Realizamos várias análises descritivas, como:
+Criamos um novo script Python, `hash_generator.py`, que recebe uma string de entrada, gera o hash SHA-1, e imprime o hash resultante. Esse script foi containerizado para facilitar sua execução e interação via terminal.
 
-#### App mais caro:
-
-Descobrimos qual o aplicativo mais caro disponível na loja.
+#### Código `hash_generator.py`:
 
 ```python
-app_mais_caro = df.loc[df['Price'].idxmax()][['App', 'Price']]
+import hashlib
+
+while True:
+    # Solicitar a entrada de uma string
+    string = input("Digite uma string para gerar o hash (ou 'sair' para encerrar): ")
+    
+    if string.lower() == 'sair':
+        break
+    
+    # Gerar o hash SHA-1 da string
+    hash_object = hashlib.sha1(string.encode())
+    
+    # Exibir o hash resultante
+    print("Hash SHA-1:", hash_object.hexdigest())
 ```
 
-#### Número de apps classificados como "Mature 17+":
+#### Dockerfile para o Script de Mascaramento:
 
-Verificamos quantos aplicativos possuem classificação indicativa "Mature 17+".
+```dockerfile
+# Usando a imagem base do Python 3.9
+FROM python:3.9
 
-```python
-quantidade_mature = df[df['Content Rating'] == 'Mature 17+'].shape[0]
+# Definindo o diretório de trabalho
+WORKDIR /app
+
+# Copiando o script Python para o contêiner
+COPY hash_generator.py .
+
+# Definindo o comando padrão para rodar o script
+CMD ["python", "hash_generator.py"]
 ```
 
-#### Top 10 apps por número de reviews:
+#### Comandos para Construir e Executar o Contêiner Interativo:
 
-Um gráfico de barras mostra os 10 aplicativos com mais avaliações.
+- Construir a imagem Docker:
 
-```python
-plt.bar(top_10_reviews['App'], top_10_reviews['Reviews'])
+```bash
+docker build -t mascarar-dados .
 ```
 
-#### Dispersão entre Tamanho do Aplicativo e Número de Instalações:
+- Executar o contêiner de forma interativa para permitir entrada de dados:
 
-Um gráfico de dispersão mostra a relação entre o tamanho do aplicativo e o número de instalações.
-
-```python
-plt.scatter(df['Size_MB'], df['Installs'])
+```bash
+docker run -it mascarar-dados
 ```
 
-#### Média de Avaliação por Gênero:
+### 4. Conclusão
 
-Visualizamos a média das avaliações por gênero de aplicativo através de um gráfico de linhas.
+Neste desafio, aprendemos a construir e executar imagens Docker para diferentes aplicações!
 
-```python
-plt.plot(media_avaliacao_por_genero['Genres'], media_avaliacao_por_genero['Rating'])
-```
+O uso do Docker para containerizar aplicativos simplifica o desenvolvimento e a implantação.
 
 
-## 📈 Conclusão
-
-Gostei muito desse desafio, realmente me ajudo a trabalhar o matplotlib e o python!
 
 ![bottom](https://github.com/user-attachments/assets/a06b7240-a4be-45d7-86e7-9427136b3891)
