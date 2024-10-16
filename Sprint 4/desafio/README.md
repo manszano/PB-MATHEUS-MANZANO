@@ -15,7 +15,7 @@ Bem-vindo ao projeto de criação de imagens Docker para a execução de scripts
 O projeto está organizado em várias etapas, conforme descrito abaixo:
 
 ### 1. Dockerfile para a Aplicação `carguru.py`
-[[Arquivos etapa 1](https://github.com/manszano/PB-MATHEUS-MANZANO/tree/main/Sprint%204/desafio/etapa1)]
+[Arquivos etapa 1](https://github.com/manszano/PB-MATHEUS-MANZANO/tree/main/Sprint%204/desafio/etapa1)
 
 &nbsp;
 
@@ -73,7 +73,7 @@ docker rm carguru-container
 ```
 
 ### 3. Script de Mascaramento de Dados com Hash SHA-1
-[[Arquivos etapa 2](https://github.com/manszano/PB-MATHEUS-MANZANO/tree/main/Sprint%204/desafio/etapa2)]
+[Arquivos etapa 3](https://github.com/manszano/PB-MATHEUS-MANZANO/tree/main/Sprint%204/desafio/etapa3)
 
 &nbsp;
 
