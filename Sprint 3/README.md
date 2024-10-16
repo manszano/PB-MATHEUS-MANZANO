@@ -677,17 +677,47 @@ Durante a sprint, realizamos desafio em análise de dados.
 Aqui estão as evidências do que foi realizado durante a sprint.
 
 **Evidência 1:**\
-![image](https://github.com/user-attachments/assets/627053ea-c0c5-4803-b7e0-29759e244cf2)
-_execução da etapa 1 do desafio_
+![image](https://github.com/user-attachments/assets/f77c5741-c00d-4aa7-80a0-6734cd0800c9)
 
-**Evidência 2:**\
-![image](https://github.com/user-attachments/assets/4590fb56-b072-4abf-9667-6358110c6907)
-_código hash etapa3_
+*Top 5 Apps por Número de Instalações*
+
+**Evidência 2:**
+![image](https://github.com/user-attachments/assets/67fafd3c-ff18-46c2-aa74-bdd01d05505d)
+
+*Distribuição de Categorias de Apps*
 
 **Evidência 3:**\
-![image](https://github.com/user-attachments/assets/6c126e0d-1378-4743-86c4-8a70ed7b4b31)
+![image](https://github.com/user-attachments/assets/b172ce6d-f893-4742-8fbc-817183653f94)
+*App mais caro*
 
-_execução imagem etapa3_
+**Evidência 4:**\
+![image](https://github.com/user-attachments/assets/41c9d5e9-43a3-49e9-bc12-6a28783684b0)
+*Apps são classificados como 'Mature 17+*
+
+**Evidência 5:**\
+![image](https://github.com/user-attachments/assets/dde35a22-9c31-4630-81c9-b99ab79a3449)
+*Top 10 apps por número de reviews.*
+
+*Evidência 6:**\
+![image](https://github.com/user-attachments/assets/65423c09-a95d-4a95-8793-dd7eca8029e4)
+
+*Cálculos sobre o dataset*
+
+*Evidência 7:**\
+![image](https://github.com/user-attachments/assets/460fdd9c-e350-4cac-9140-440e99c93eba)
+
+*Top 10 Apps por Número de Reviews*
+
+*Evidência 8:**\
+![image](https://github.com/user-attachments/assets/e0976420-0a1f-44cc-aaf9-4490440d55ec)
+
+*Dispersão entre Tamanho do Aplicativo*
+
+*Evidência 9:**\
+![image](https://github.com/user-attachments/assets/21b4169b-1ef7-4ad6-a1de-d3730356728c)
+
+*Média de Avaliação por Gênero de Aplicativo*
+
 
 
 ---
@@ -695,9 +725,9 @@ _execução imagem etapa3_
 ## 🎓 **Certificados**
 
 ### **Certificados Conquistados Durante a Sprint:**
-[13246_3_6280596_1729098232_AWS Course Completion Certificate.pdf](https://github.com/user-attachments/files/17400092/13246_3_6280596_1729098232_AWS.Course.Completion.Certificate.pdf)
-*AWS Partner: Credenciamento (Técnico) (Português) | AWS Partner: Accreditation
-(Technical) (Portuguese)*
+![image](https://github.com/user-attachments/assets/6f61eb74-0ab6-4ea4-8ca1-6f6d5af59fbc)
+*Parceiros da AWS: Aspectos econômicos da nuvem (Portugues) | AWS Partner:
+Cloud Economics (Portuguese)*
 
 ---
 
@@ -706,4 +736,3 @@ _execução imagem etapa3_
 Nesta sprint, concluímos com sucesso os objetivos propostos, enfrentamos desafios importantes e adquirimos novos conhecimentos, gostei do projeto e de sua estrutura e estou empolgado para as próximas Sprints!!
 
 ![bottom](https://github.com/user-attachments/assets/a06b7240-a4be-45d7-86e7-9427136b3891)
-
