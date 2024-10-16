@@ -3,6 +3,7 @@
 </div>
 
 &nbsp;
+
 # 🐳 Desafio Docker: Aplicações com Imagens Docker
 
 Bem-vindo ao projeto de criação de imagens Docker para a execução de scripts Python e interações com contêineres! 🎉 Nesssa sprint, exploramos o uso de Docker para criar e gerenciar contêineres, automatizar a execução de scripts, e implementar um algoritimo com hashes SHA-1. 
@@ -14,6 +15,9 @@ Bem-vindo ao projeto de criação de imagens Docker para a execução de scripts
 O projeto está organizado em várias etapas, conforme descrito abaixo:
 
 ### 1. Dockerfile para a Aplicação `carguru.py`
+[[Arquivos etapa 1](https://github.com/manszano/PB-MATHEUS-MANZANO/tree/main/Sprint%204/desafio/etapa1)]
+
+&nbsp;
 
 Neste primeiro passo, criamos um **Dockerfile** para executar o script `carguru.py` dentro de um contêiner Docker.
 
@@ -69,6 +73,9 @@ docker rm carguru-container
 ```
 
 ### 3. Script de Mascaramento de Dados com Hash SHA-1
+[[Arquivos etapa 2](https://github.com/manszano/PB-MATHEUS-MANZANO/tree/main/Sprint%204/desafio/etapa2)]
+
+&nbsp;
 
 Criamos um novo script Python, `hash_generator.py`, que recebe uma string de entrada, gera o hash SHA-1, e imprime o hash resultante. Esse script foi containerizado para facilitar sua execução e interação via terminal.
 
