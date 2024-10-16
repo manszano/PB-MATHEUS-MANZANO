@@ -3,10 +3,10 @@
 </div>
 
 ### Arquivos da sprint
-[Desafio](https://github.com/manszano/PB-MATHEUS-MANZANO/tree/main/Sprint%203/desafio/Jupyter)
-[Exercicios](https://github.com/manszano/PB-MATHEUS-MANZANO/tree/main/Sprint%203/exercicios)
-[Evidências](https://github.com/manszano/PB-MATHEUS-MANZANO/tree/main/Sprint%203/evidencias)
-[Certificados](https://github.com/manszano/PB-MATHEUS-MANZANO/tree/main/Sprint%203/certificados)
+[Desafio](https://github.com/manszano/PB-MATHEUS-MANZANO/tree/main/Sprint%204/desafio/Jupyter)
+[Exercicios](https://github.com/manszano/PB-MATHEUS-MANZANO/tree/main/Sprint%204/exercicios)
+[Evidências](https://github.com/manszano/PB-MATHEUS-MANZANO/tree/main/Sprint%204/evidencias)
+[Certificados](https://github.com/manszano/PB-MATHEUS-MANZANO/tree/main/Sprint%204/certificados)
 
 
 ## 📝 **Instruções/Informações/Anotações**
@@ -246,12 +246,29 @@ docker run -it mascarar-dados
 ### **Resultados:**
 Aqui estão as evidências do que foi realizado durante a sprint.
 
+**Evidência 1:**\
+![image](https://github.com/user-attachments/assets/627053ea-c0c5-4803-b7e0-29759e244cf2)
+_execução da etapa 1 do desafio_
+
+**Evidência 2:**\
+![image](https://github.com/user-attachments/assets/4590fb56-b072-4abf-9667-6358110c6907)
+_código hash etapa3_
+
+**Evidência 3:**\
+![image](https://github.com/user-attachments/assets/6c126e0d-1378-4743-86c4-8a70ed7b4b31)
+
+_execução imagem etapa3_
+
+---
+
 ## 🎓 **Certificados**
 
 ### **Certificados Conquistados Durante a Sprint:**
-![image](https://github.com/user-attachments/assets/6f61eb74-0ab6-4ea4-8ca1-6f6d5af59fbc)
-*Parceiros da AWS: Aspectos econômicos da nuvem (Portugues) | AWS Partner:
-Cloud Economics (Portuguese)*
+![image](https://github.com/user-attachments/assets/bb8cdcec-6a86-42fc-adc0-11e76b2500d6)
+
+*AWS Partner: Credenciamento (Técnico) (Português) | AWS Partner: Accreditation
+(Technical) (Portuguese)*
+
 
 ## 🎯 **Conclusão da Sprint**
 
