@@ -220,20 +220,41 @@ while True:
     
     hash_object = hashlib.sha1(string.encode())
     print("Hash SHA-1:", hash_object.hexdigest())
+```
+
 Dockerfile:
 
-dockerfile
+```dockerfile
 Copiar código
 FROM python:3.9
 WORKDIR /app
 COPY hash_generator.py .
 CMD ["python", "hash_generator.py"]
+```
+
 Comandos para construir e executar:
 
-bash
-Copiar código
+```bash
 # Construir a imagem
 docker build -t mascarar-dados .
 
 # Executar o container interativo
 docker run -it mascarar-dados
+````
+## 📸 **Evidências**
+
+### **Resultados:**
+Aqui estão as evidências do que foi realizado durante a sprint.
+
+## 🎓 **Certificados**
+
+### **Certificados Conquistados Durante a Sprint:**
+![image](https://github.com/user-attachments/assets/6f61eb74-0ab6-4ea4-8ca1-6f6d5af59fbc)
+*Parceiros da AWS: Aspectos econômicos da nuvem (Portugues) | AWS Partner:
+Cloud Economics (Portuguese)*
+
+## 🎯 **Conclusão da Sprint**
+
+Nesta sprint, concluímos com sucesso os objetivos propostos, enfrentamos desafios importantes e adquirimos novos conhecimentos, gostei do projeto e de sua estrutura e estou empolgado para as próximas Sprints!!
+
+![bottom](https://github.com/user-attachments/assets/a06b7240-a4be-45d7-86e7-9427136b3891)
