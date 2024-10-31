@@ -97,14 +97,14 @@ print(f"Arquivo '{processed_file_name}' salvo e carregado com sucesso no bucket 
 ### **Resultados:**
 Aqui estão as evidências do que foi realizado durante o desafio.
 
-**Script executado:**\
+**Script executado:**
 <div>
   <img src="https://github.com/user-attachments/assets/aef6c17d-1ff6-41f7-813b-1072bced3acb" width="50%" alt="Upload do arquivo original para o bucket S3">
 </div>
 _Execução das manipulações e transformações no DataFrame_
 
 
-**Bucket Desafio:**\
+**Bucket Desafio:**
 <div>
   <img src="https://github.com/user-attachments/assets/f1cc1002-34f5-4900-afe8-8bb16479de6e">
 </div>
