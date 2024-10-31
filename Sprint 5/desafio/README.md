@@ -19,6 +19,8 @@ Neste primeiro passo, foi criado um bucket S3 e realizado o upload do arquivo `P
 
 #### Código Python para o Upload:
 
+#### [Script completo](https://github.com/manszano/PB-MATHEUS-MANZANO/blob/main/Sprint%205/desafio/consulta.py)
+
 ```python
 import boto3
 
@@ -89,6 +91,11 @@ df.to_csv(processed_file_name, index=False, encoding='latin1')
 s3_client.upload_file(processed_file_name, bucket_name, processed_file_name)
 print(f"Arquivo '{processed_file_name}' salvo e carregado com sucesso no bucket '{bucket_name}'.")
 ```
+
+### Resultados
+
+#### [Arquivo CSV original](https://github.com/manszano/PB-MATHEUS-MANZANO/blob/main/Sprint%205/desafio/arquivos-csv/ProuniRelatorioDadosAbertos2020.csv)
+#### [Arquivo CSV Processado](https://github.com/manszano/PB-MATHEUS-MANZANO/blob/main/Sprint%205/desafio/arquivos-csv/ProuniRelatorioProcessado.csv)
 
 ---
 
