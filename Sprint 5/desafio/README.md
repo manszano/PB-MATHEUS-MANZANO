@@ -22,16 +22,17 @@ Neste primeiro passo, foi criado um bucket S3 e realizado o upload do arquivo `P
 ```python
 import boto3
 
+# Nome do bucket e arquivo
+bucket_name = 'manzano-bucket-sprint5'
+object_name = 'ProuniRelatorioDadosAbertos2020.csv'
+
 # Configuração do cliente S3
 s3_client = boto3.client('s3',
-    aws_access_key_id='SEU_ACCESS_KEY',
-    aws_secret_access_key='SEU_SECRET_KEY',
+    aws_access_key_id='XXXX',
+    aws_secret_access_key='XXX',
+    aws_session_token = "XXXX",
     region_name='us-east-1'
 )
-
-# Nome do bucket e arquivo
-bucket_name = "manzano-bucket-sprint5"
-file_name = "ProuniRelatorioDadosAbertos2020.csv"
 
 # Upload do arquivo
 s3_client.upload_file(file_name, bucket_name, file_name)
@@ -47,29 +48,30 @@ Após o upload do arquivo, ele foi baixado do bucket S3, carregado em um DataFra
 import pandas as pd
 
 # Download do arquivo para leitura
-s3_client.download_file(bucket_name, file_name, 'local_Prouni.csv')
+response = s3_client.get_object(Bucket=bucket_name, Key=object_name)
+file_content = response['Body'].read()
 
 # Carregar o arquivo em um DataFrame
-df = pd.read_csv('local_Prouni.csv', delimiter=';', encoding='latin1')
+df = pd.read_csv(BytesIO(file_content), sep=';', encoding='latin1')
 
 # Aplicar filtros, funções de agregação e manipulações
+  df['DATA_NASCIMENTO'] = pd.to_datetime(df['DATA_NASCIMENTO'], errors='coerce')
+
+if df['DATA_NASCIMENTO'].isnull().any():
+        print("Data de Nascimento nula!")
+
+ano_atual = pd.Timestamp('today').year
+df['IDADE'] = ano_atual - df['DATA_NASCIMENTO'].dt.year
+
 df_filtrado = df[(df['TIPO_BOLSA'] == 'INTEGRAL') & (df['REGIAO_BENEFICIARIO'] == 'SUDESTE')]
-
-# Funções de agregação
-df_agg = df_filtrado.groupby('NOME_CURSO_BOLSA').agg(
-    total_bolsas=('NOME_CURSO_BOLSA', 'count'),
-    idade_media=('IDADE', 'mean')
-).reset_index()
-
-# Função condicional
-df['MAIOR_30'] = df['IDADE'] >= 30
-
-# Conversão de colunas
-df['SEXO_MASCULINO'] = df['SEXO_BENEFICIARIO'].apply(lambda x: x == 'M')
-
-# Função de data e string
-df['ANO_NASCIMENTO'] = pd.to_datetime(df['DATA_NASCIMENTO'], errors='coerce').dt.year
+contagem_bolsas = df_filtrado['NOME_CURSO_BOLSA'].value_counts()
+media_idade = df_filtrado['IDADE'].mean()
+df['MAIOR_30'] = df['IDADE'].apply(lambda x: 'Sim' if x >= 30 else 'Não')
+df['SEXO_MASCULINO'] = df['SEXO_BENEFICIARIO'].apply(lambda x: True if x == 'M' else False)
+df['ANO_NASCIMENTO'] = df['DATA_NASCIMENTO'].dt.year
 df['NOME_CURSO_BOLSA'] = df['NOME_CURSO_BOLSA'].str.upper()
+
+
 ```
 
 ### 3. Salvar e Recarregar o Arquivo Processado no S3
@@ -80,11 +82,12 @@ O DataFrame manipulado foi salvo em um novo arquivo CSV e enviado novamente ao b
 
 ```python
 # Salvar o DataFrame processado em CSV
-processed_file_name = "ProuniRelatorioProcessado.csv"
-df.to_csv(processed_file_name, index=False)
+processed_file_name = 'ProuniRelatorioProcessado.csv'
+df.to_csv(processed_file_name, index=False, encoding='latin1')
 
-# Upload do arquivo processado para o S3
+#Upload do arquivo processado no S3
 s3_client.upload_file(processed_file_name, bucket_name, processed_file_name)
+print(f"Arquivo '{processed_file_name}' salvo e carregado com sucesso no bucket '{bucket_name}'.")
 ```
 
 ---
