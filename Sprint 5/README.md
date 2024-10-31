@@ -108,6 +108,9 @@ Para configurar o Amazon S3 como um servidor de hospedagem de site estático, fo
 
 Essas configurações permitiu que o bucket em questão (_manzano.bucket.com_) sirva como uma hospedagem estática simples.
 
+![bucket-site-estático](https://github.com/user-attachments/assets/64d291b9-79a7-410f-a3f5-911f00344e5e)
+![site-estático](https://github.com/user-attachments/assets/20650125-2d97-40c9-b16d-0ce0e8b5416f)
+
 ---
 
 ## 🎯 **Desafio**
@@ -183,39 +186,25 @@ df.to_csv(processed_file_name, index=False)
 # Upload do arquivo processado para o S3
 s3_client.upload_file(processed_file_name, bucket_name, processed_file_name)
 ```
+### **Considerações Finais e evidências**
+
+Com isso foi possível utilzar a api da AWS para fazer alterações em um bucket do S3.
+![bucket-desafio](https://github.com/user-attachments/assets/b50642a8-3a45-45ac-a3e1-0b14dfe26377)
+![execução-aws](https://github.com/user-attachments/assets/b657dbee-6356-4620-b29e-4c05ad51f1ac)
 
 ---
 
-## 📸 **Evidências**
-
-### **Resultados:**
-Aqui estão as evidências do que foi realizado durante a sprint.
-
-**Evidência 1:**\
-![image](https://github.com/user-attachments/assets/627053ea-c0c5-4803-b7e0-29759e244cf2)
-_Upload do arquivo original para o bucket S3_
-
-**Evidência 2:**\
-![image](https://github.com/user-attachments/assets/4590fb56-b072-4abf-9667-6358110c6907)
-_Execução das manipulações e transformações no DataFrame_
-
-**Evidência 3:**\
-![image](https://github.com/user-attachments/assets/6c126e0d-1378-4743-86c4-8a70ed7b4b31)
-_Upload do arquivo processado de volta ao S3_
-
----
 
 ## 🎓 **Certificados**
 
 ### **Certificados Conquistados Durante a Sprint:**
-![image](https://github.com/user-attachments/assets/bb8cdcec-6a86-42fc-adc0-11e76b2500d6)
+![Cloud-Quest](https://github.com/user-attachments/assets/654e64f4-daa8-4613-9a4e-b8176e26716f)
 
-*AWS Partner: Credenciamento (Técnico) (Português) | AWS Partner: Accreditation
-(Technical) (Portuguese)*
+*AWS Cloud Quest: Cloud Practitioner*
 
 
 ## 🎯 **Conclusão da Sprint**
 
-Nesta sprint, concluímos com sucesso os objetivos propostos, enfrentamos desafios importantes e adquirimos novos conhecimentos, gostei do projeto e de sua estrutura e estou empolgado para as próximas Sprints!!
+Nesta sprint, concluímos com sucesso os objetivos propostos, enfrentamos desafios importantes e adquirimos novos conhecimentos, gostei de aprender sobre AWS e de sua estrutura e estou empolgado para as próximas Sprints!!
 
 ![bottom](https://github.com/user-attachments/assets/a06b7240-a4be-45d7-86e7-9427136b3891)
