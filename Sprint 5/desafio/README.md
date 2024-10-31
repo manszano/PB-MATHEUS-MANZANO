@@ -3,130 +3,113 @@
 </div>
 
 &nbsp;
-# 🐳 Desafio Docker: Aplicações com Imagens Docker
+# ☁️ Desafio de Manipulação de Dados com boto3 e Pandas
 
-Bem-vindo ao projeto de criação de imagens Docker para a execução de scripts Python e interações com contêineres! 🎉 Nesssa sprint, exploramos o uso de Docker para criar e gerenciar contêineres, automatizar a execução de scripts, e implementar um algoritimo com hashes SHA-1. 
+Neste projeto, realizamos o upload e manipulação de um dataset de dados do ProUni usando a biblioteca `boto3` para interagir com o Amazon S3 e `pandas` para as transformações no arquivo.
 
-#Para visualização e execução dos contêineres, utilize o Dockerfile e os scripts fornecidos!
+#Para replicação e execução do código, utilize o script Python com as credenciais configuradas no boto3 e o DataFrame resultante no pandas!
 
 ## 📂 Estrutura do Projeto
 
-O projeto está organizado em várias etapas, conforme descrito abaixo:
+O projeto está dividido em várias etapas, conforme detalhado a seguir:
 
-### 1. Dockerfile para a Aplicação `carguru.py`
+### 1. Upload do Arquivo para o Bucket S3
 
-Neste primeiro passo, criamos um **Dockerfile** para executar o script `carguru.py` dentro de um contêiner Docker.
+Neste primeiro passo, foi criado um bucket S3 e realizado o upload do arquivo `ProuniRelatorioDadosAbertos2020.csv` usando `boto3`.
 
-#### Dockerfile:
-
-```dockerfile
-# Usando a imagem base do Python 3.9
-FROM python:3.9
-
-# Definindo o diretório de trabalho
-WORKDIR /app
-
-# Copiando o script Python para o contêiner
-COPY carguru.py .
-
-# Definindo o comando padrão para rodar o script
-CMD ["python", "carguru.py"]
-```
-
-#### Comandos para Construir e Executar a Imagem:
-
-- Construir a imagem Docker:
-
-```bash
-docker build -t carguru-image .
-```
-
-- Executar o contêiner criado a partir da imagem:
-
-```bash
-docker run --name carguru-container carguru-image
-```
-
-### 2. Reutilização de Contêineres
-
-- Sim é possivel reutilizar contâineres!
-- Aprendemos a reutilizar contêineres já criados para evitar a necessidade de criar novos contêineres a cada execução.
-
-#### Comando para Reiniciar Contêiner Parado:
-
-- Reiniciar o contêiner existente:
-
-```bash
-docker start carguru-container
-```
-
-#### Remover Contêiner:
-
-- Para remover contêineres antigos e liberar o nome:
-
-```bash
-docker rm carguru-container
-```
-
-### 3. Script de Mascaramento de Dados com Hash SHA-1
-
-Criamos um novo script Python, `hash_generator.py`, que recebe uma string de entrada, gera o hash SHA-1, e imprime o hash resultante. Esse script foi containerizado para facilitar sua execução e interação via terminal.
-
-#### Código `hash_generator.py`:
+#### Código Python para o Upload:
 
 ```python
-import hashlib
+import boto3
 
-while True:
-    # Solicitar a entrada de uma string
-    string = input("Digite uma string para gerar o hash (ou 'sair' para encerrar): ")
-    
-    if string.lower() == 'sair':
-        break
-    
-    # Gerar o hash SHA-1 da string
-    hash_object = hashlib.sha1(string.encode())
-    
-    # Exibir o hash resultante
-    print("Hash SHA-1:", hash_object.hexdigest())
+# Configuração do cliente S3
+s3_client = boto3.client('s3',
+    aws_access_key_id='SEU_ACCESS_KEY',
+    aws_secret_access_key='SEU_SECRET_KEY',
+    region_name='us-east-1'
+)
+
+# Nome do bucket e arquivo
+bucket_name = "manzano-bucket-sprint5"
+file_name = "ProuniRelatorioDadosAbertos2020.csv"
+
+# Upload do arquivo
+s3_client.upload_file(file_name, bucket_name, file_name)
 ```
 
-#### Dockerfile para o Script de Mascaramento:
+### 2. Manipulação dos Dados com Pandas
 
-```dockerfile
-# Usando a imagem base do Python 3.9
-FROM python:3.9
+Após o upload do arquivo, ele foi baixado do bucket S3, carregado em um DataFrame com `pandas`, e diversas operações de manipulação foram aplicadas.
 
-# Definindo o diretório de trabalho
-WORKDIR /app
+#### Código Python para Manipulações:
 
-# Copiando o script Python para o contêiner
-COPY hash_generator.py .
+```python
+import pandas as pd
 
-# Definindo o comando padrão para rodar o script
-CMD ["python", "hash_generator.py"]
+# Download do arquivo para leitura
+s3_client.download_file(bucket_name, file_name, 'local_Prouni.csv')
+
+# Carregar o arquivo em um DataFrame
+df = pd.read_csv('local_Prouni.csv', delimiter=';', encoding='latin1')
+
+# Aplicar filtros, funções de agregação e manipulações
+df_filtrado = df[(df['TIPO_BOLSA'] == 'INTEGRAL') & (df['REGIAO_BENEFICIARIO'] == 'SUDESTE')]
+
+# Funções de agregação
+df_agg = df_filtrado.groupby('NOME_CURSO_BOLSA').agg(
+    total_bolsas=('NOME_CURSO_BOLSA', 'count'),
+    idade_media=('IDADE', 'mean')
+).reset_index()
+
+# Função condicional
+df['MAIOR_30'] = df['IDADE'] >= 30
+
+# Conversão de colunas
+df['SEXO_MASCULINO'] = df['SEXO_BENEFICIARIO'].apply(lambda x: x == 'M')
+
+# Função de data e string
+df['ANO_NASCIMENTO'] = pd.to_datetime(df['DATA_NASCIMENTO'], errors='coerce').dt.year
+df['NOME_CURSO_BOLSA'] = df['NOME_CURSO_BOLSA'].str.upper()
 ```
 
-#### Comandos para Construir e Executar o Contêiner Interativo:
+### 3. Salvar e Recarregar o Arquivo Processado no S3
 
-- Construir a imagem Docker:
+O DataFrame manipulado foi salvo em um novo arquivo CSV e enviado novamente ao bucket S3.
 
-```bash
-docker build -t mascarar-dados .
+#### Código Python para o Salvamento:
+
+```python
+# Salvar o DataFrame processado em CSV
+processed_file_name = "ProuniRelatorioProcessado.csv"
+df.to_csv(processed_file_name, index=False)
+
+# Upload do arquivo processado para o S3
+s3_client.upload_file(processed_file_name, bucket_name, processed_file_name)
 ```
 
-- Executar o contêiner de forma interativa para permitir entrada de dados:
+---
 
-```bash
-docker run -it mascarar-dados
-```
+## 📸 **Evidências**
 
-### 4. Conclusão
+### **Resultados:**
+Aqui estão as evidências do que foi realizado durante o desafio.
 
-Neste desafio, aprendemos a construir e executar imagens Docker para diferentes aplicações!
+**Script executado:**\
+<div>
+  <img src="https://github.com/user-attachments/assets/aef6c17d-1ff6-41f7-813b-1072bced3acb" width="50%" alt="Upload do arquivo original para o bucket S3">
+</div>
+_Execução das manipulações e transformações no DataFrame_
 
-O uso do Docker para containerizar aplicativos simplifica o desenvolvimento e a implantação.
+
+**Bucket Desafio:**\
+<div>
+  <img src="https://github.com/user-attachments/assets/f1cc1002-34f5-4900-afe8-8bb16479de6e">
+</div>
+_Print do bucket S3_
 
 
+---
 
-![bottom](https://github.com/user-attachments/assets/a06b7240-a4be-45d7-86e7-9427136b3891)
+<div>
+  <img src="https://github.com/user-attachments/assets/a06b7240-a4be-45d7-86e7-9427136b3891" width="100%" alt="bottom">
+</div>
