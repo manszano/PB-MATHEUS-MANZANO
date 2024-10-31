@@ -2,246 +2,190 @@
   <img src="https://github.com/user-attachments/assets/9a2399c2-09f5-406d-8094-e1f2fa56d06e">
 </div>
 
+<br> 
+
 <p align="center">
- <a href="#sobre">Sobre</a> •
- <a href="#Relatórios">Relatórios</a> •
+ <a href="#Sobre">Sobre</a> •
+ <a href="#ex">Exercicío</a> •
  <a href="#exercicios-p">Exercícios Python</a> •
  <a href="#exercicios-d">Exercícios Docker</a> •
  <a href="#Certificados">Certificados</a>
 </p>
 
-## 📝 **Instruções/Informações/Anotações**
-
-### **Objetivo da Sprint:**
-Desenvolver um projeto Docker para execução de scripts Python.
-
-- **Tarefas Realizadas:**  
-  - **Docker:**
-    - Criada uma imagem Docker para executar o script `carguru.py`.
-    - Utilizado Python 3.9 como base da imagem.
-    - Gerado o `Dockerfile` com as instruções para copiar e executar o script no container.
-  - **Docker - Reutilização de Containers:**
-    - Demonstrado como reutilizar containers parados, reiniciando containers existentes.
-  - **Docker - Interação com Container:**
-    - Criado um novo script Python que recebe uma string, gera um hash SHA-1, e imprime o resultado.
-    - Criada uma nova imagem Docker chamada `mascarar-dados` para executar o script com interação via terminal.
-
-### **Anotações Importantes:**
-#### _Aprendizados:_
-
-- Como criar e configurar imagens Docker usando `Dockerfile`.
-- Como reutilizar containers no Docker e a importância de nomes únicos para containers.
-- Como permitir a interação do usuário com containers em execução.
-
-- **Tecnologias Utilizadas:**
-  - Docker
-  - Python 3.9
-  - Algoritmo de hash SHA-1
-
-- **Desafios Enfrentados:**  
-  - Conflito de nomes ao tentar criar containers com o mesmo nome.
-  - Manuseio de containers interativos com Docker.
-
-- **Soluções:**  
-  - Utilizar `docker rm` para remover containers antigos, ou renomeá-los para evitar conflitos.
-  - Usar o parâmetro `-it` ao rodar containers para permitir interação com o terminal.
-
 ---
-## **Exercícios**
 
-Diretório: [Exercícios Docker](#) 
+<a id="Sobre"></a>
+## 📝 **Sobre**
 
-### E01
-```python
-caminho_arquivo = 'number.txt'
-with open(caminho_arquivo, 'r') as arquivo:
-    numeros = list(map(int, arquivo.readlines()))
-
-numeros_pares = list(filter(lambda x: x % 2 == 0, numeros))
-
-numeros_pares_ordenados = sorted(numeros_pares, reverse=True)
-
-top_5_pares = numeros_pares_ordenados[:5]
-
-soma_top_5 = sum(top_5_pares)
-
-print(top_5_pares)
-print(soma_top_5)
-```
+### **Objetivo da Sprint**
+Desenvolver um projeto em Python para manipulação e análise de dados do Prouni, integrando armazenamento em nuvem com AWS S3 via `boto3`.
 
 ---
 
-### E02
-```python
-def conta_vogais(texto):
-    return len(list(filter(lambda x: x.lower() in 'aeiou', texto)))
+### **Tarefas Realizadas**
 
-print(conta_vogais("teste"))
-```
+- **Upload para o S3**
+  - Carregado o arquivo original `ProuniRelatorioDadosAbertos2020.csv` para um bucket S3.
+  - Utilizada a biblioteca `boto3` para configurar o cliente e realizar o upload do arquivo.
+
+- **Manipulação de Dados**
+  - Carregado o arquivo do bucket S3 para um DataFrame com `pandas`.
+  - Realizadas as seguintes operações no DataFrame:
+    - **Filtro com múltiplos operadores lógicos:** Seleção de bolsas do tipo integral na região Sudeste.
+    - **Funções de agregação:** Contagem de bolsas por curso e cálculo da média de idade dos beneficiários.
+    - **Funções condicionais:** Criação da coluna `MAIOR_30`, indicando se o beneficiário possui 30 anos ou mais.
+    - **Conversão de colunas:** Criação da coluna `SEXO_MASCULINO`, com valores booleanos para sexo masculino.
+    - **Funções de manipulação de data:** Conversão de `DATA_NASCIMENTO` para o ano de nascimento.
+    - **Funções de string:** Transformação dos nomes dos cursos para letras maiúsculas.
+
+- **Salvamento e Upload do Arquivo Processado**
+  - O DataFrame manipulado foi salvo localmente como `ProuniRelatorioProcessado.csv`.
+  - O arquivo processado foi enviado de volta ao bucket S3 para armazenamento final.
+
 ---
 
-### E03
-```python
-from functools import reduce
+### **Anotações Importantes**
 
-def calcula_saldo(lancamentos) -> float:
-    valores = map(lambda lanc: lanc[0] if lanc[1] == 'C' else -lanc[0], lancamentos)
-    return reduce(lambda saldo, valor: saldo + valor, valores)
+#### _Aprendizados_
 
-lancamentos = [
-    (200, 'D'),
-    (300, 'C'),
-    (100, 'C')
-]
+- Configuração do cliente `boto3` para operações de upload e download em buckets S3.
+- Manipulação de dados com `pandas`, incluindo operações de filtro, agregação e transformação de strings e datas.
+- Importância de definir o encoding correto ao carregar arquivos CSV para evitar problemas de decodificação.
 
-print(calcula_saldo(lancamentos))
+#### _Tecnologias Utilizadas_
 
-```
+- Python 3.12
+- pandas
+- boto3 (integração com AWS S3)
+
 ---
 
-### E04
-```python
-def calcular_valor_maximo(operadores, operandos) -> float:
-    operacoes = {
-        '+': lambda x, y: x + y,
-        '-': lambda x, y: x - y,
-        '*': lambda x, y: x * y,
-        '/': lambda x, y: x / y if y != 0 else float('inf'), #divisão por zero
-        '%': lambda x, y: x % y
-    }
-    
-    resultados = map(lambda op_ope: operacoes[op_ope[0]](op_ope[1][0], op_ope[1][1]), zip(operadores, operandos))
-    return max(resultados)
+### **Desafios Enfrentados e Soluções**
 
-operadores = ['+','-','*','/','+']
-operandos  = [(3,6), (-7,4.9), (8,-8), (10,2), (8,4)]
+- **Problemas de Encoding**
+  - **Desafio:** Erros de decodificação devido ao encoding incompatível (UTF-8) do CSV.
+  - **Solução:** Utilização do encoding `latin1`, compatível com caracteres acentuados em português.
 
-print(calcular_valor_maximo(operadores, operandos))
+- **Manipulação de Datas com Valores Nulos**
+  - **Desafio:** Valores nulos ao calcular idades, devido a dados de nascimento inválidos.
+  - **Solução:** Uso do parâmetro `errors='coerce'` para converter valores inválidos em `NaT` (valores nulos).
 
-```
+- **Tratamento de Dados de Data e String**
+  - **Desafio:** Necessidade de extração e transformação de colunas de data e texto.
+  - **Solução:** Aplicação de funções de `pandas` para manipulação de strings e extração de dados de data, mantendo a consistência no DataFrame.
+
 ---
 
-### E05
-```python
-def processar_arquivo(caminho_arquivo):
-    with open(caminho_arquivo, 'r') as arquivo:
-        linhas = arquivo.readlines()
+<a id="ex"></a>
+## **Exercicío: Configuração de Bucket S3 para Hospedagem de Site Estático**
 
-    def processar_linha(linha):
-        partes = linha.strip().split(',')
-        nome = partes[0]
-        notas = sorted(map(int, partes[1:]), reverse=True)[:3]
-        media = round(sum(notas) / 3, 2)
-        return f"Nome: {nome} Notas: {notas} Média: {media}"
+Para configurar o Amazon S3 como um servidor de hospedagem de site estático, foram seguidas as etapas abaixo. Esse processo permitiu armazenar e disponibilizar arquivos de forma pública, acessíveis através de um endpoint de site gerado pelo S3.
 
-    # Ordenar os estudantes por nome e processar as informações
-    resultado = sorted(map(processar_linha, linhas))
+### **Etapas Realizadas**
 
-    for linha in resultado:
-        print(linha)
+- **Etapa 1:** Criar um Bucket
+  - Criado um bucket no S3 (_manzano.bucket.com_) para armazenar os arquivos do site.
 
-caminho_arquivo = 'estudantes.csv'
-processar_arquivo(caminho_arquivo)
-```
+- **Etapa 2:** Habilitar Hospedagem de Site Estático
+  - Nas configurações do bucket, habilitada a opção de "Hospedagem de site estático", permitindo que o bucket sirva páginas web.
+
+- **Etapa 3:** Editar Configurações de Bloqueio de Acesso Público
+  - Modificadas as configurações para desativar o bloqueio de acesso público, habilitando o bucket para acesso público.
+
+- **Etapa 4:** Adicionar Política de Bucket para Acesso Público
+  - Adicionada uma política de bucket para tornar todo o conteúdo do bucket acessível publicamente. Essa política permite que qualquer usuário acesse os arquivos armazenados.
+
+- **Etapa 5:** Configurar Documento de Índice
+  - Definido um arquivo HTML: index.html, como o documento de índice, para que o site mostre essa página inicial automaticamente ao ser acessado.
+
+- **Etapa 6:** Configurar Documento de Erros
+  - Configurado um documento de erro: error.html para exibir mensagens de erro personalizadas caso o usuário acesse uma URL inválida ou arquivos inexistentes.
+
+- **Etapa 7:** Testar o Endpoint do Site
+  - O endpoint gerado pelo S3 foi testado e é o seguinte: _http://manzano.bucket.com.s3-website-us-east-1.amazonaws.com/_.
+
+### **Considerações Finais e evidências**
+
+Essas configurações permitiu que o bucket em questão (_manzano.bucket.com_) sirva como uma hospedagem estática simples.
+
 ---
-
-### E06
-```python
-def maiores_que_media(conteudo):
-    media = sum(conteudo.values()) / len(conteudo)
-    produtos_acima_media = filter(lambda item: item[1] > media, conteudo.items())
-    return sorted(produtos_acima_media, key=lambda item: item[1])
-
-conteudo = {
-    "arroz": 4.99,
-    "feijão": 3.49,
-    "macarrão": 2.99,
-    "leite": 3.29,
-    "pão": 1.99
-}
-
-print(maiores_que_media(conteudo))
-
-```
----
-
-### E07
-```python
-def pares_ate(n: int):
-    for i in range(2, n + 1, 2):
-        yield i
-
-for par in pares_ate(10):
-    print(par)
-```
 
 ## 🎯 **Desafio**
 
-Diretório: [Desafio](#) 
+Diretório: [Desafio Manipulação de Dados com boto3](#) 
 
-### Etapa 1: Criar Imagem Docker com `carguru.py`
+---
 
-```dockerfile
-# Dockerfile para criar a imagem do script carguru.py
-FROM python:3.9
-WORKDIR /app
-COPY carguru.py .
-CMD ["python", "carguru.py"]
-```
-### Comandos para construir e executar:
-```bash
-# Construir a imagem Docker
-docker build -t carguru-image .
+### Etapa 1: Upload do Arquivo para o Bucket S3
 
-# Rodar o container com o script
-docker run --name carguru-container carguru-image
-```
-
-### Etapa 2: Reutilizar Containers
-Reutilizar containers parados:
-
-```bash
-docker start carguru-container
-```
-Remover containers antigos:
-
-```bash
-docker rm carguru-container
-```
-### Etapa 3: Criar Script Interativo e Imagem Docker
+Para iniciar o desafio, foi criado um bucket S3 e realizado o upload do arquivo `ProuniRelatorioDadosAbertos2020.csv` com a biblioteca `boto3`.
 
 ```python
-# hash_generator.py
-import hashlib
+import boto3
 
-while True:
-    string = input("Digite uma string para gerar o hash (ou 'sair' para encerrar): ")
-    if string.lower() == 'sair':
-        break
-    
-    hash_object = hashlib.sha1(string.encode())
-    print("Hash SHA-1:", hash_object.hexdigest())
+# Configuração do cliente S3
+s3_client = boto3.client('s3',
+    aws_access_key_id='XXXX',
+    aws_secret_access_key='XXXX',
+    region_name='us-east-1'
+)
+
+# Nome do bucket e arquivo
+bucket_name = "manzano-bucket-sprint5"
+file_name = "ProuniRelatorioDadosAbertos2020.csv"
+
+# Upload do arquivo
+s3_client.upload_file(file_name, bucket_name, file_name)
 ```
 
-Dockerfile:
+### Etapa 2: Manipulação dos Dados com Pandas
 
-```dockerfile
-Copiar código
-FROM python:3.9
-WORKDIR /app
-COPY hash_generator.py .
-CMD ["python", "hash_generator.py"]
+Após o upload do arquivo, ele foi baixado do bucket S3, carregado em um DataFrame `pandas` e submetido a várias operações de manipulação.
+
+```python
+import pandas as pd
+
+# Download do arquivo para leitura
+s3_client.download_file(bucket_name, file_name, 'local_Prouni.csv')
+
+# Carregar o arquivo em um DataFrame
+df = pd.read_csv('local_Prouni.csv', delimiter=';', encoding='latin1')
+
+# Aplicar filtros, funções de agregação e manipulações
+df_filtrado = df[(df['TIPO_BOLSA'] == 'INTEGRAL') & (df['REGIAO_BENEFICIARIO'] == 'SUDESTE')]
+
+# Funções de agregação
+df_agg = df_filtrado.groupby('NOME_CURSO_BOLSA').agg(
+    total_bolsas=('NOME_CURSO_BOLSA', 'count'),
+    idade_media=('IDADE', 'mean')
+).reset_index()
+
+# Função condicional
+df['MAIOR_30'] = df['IDADE'] >= 30
+
+# Conversão de colunas
+df['SEXO_MASCULINO'] = df['SEXO_BENEFICIARIO'].apply(lambda x: x == 'M')
+
+# Função de data e string
+df['ANO_NASCIMENTO'] = pd.to_datetime(df['DATA_NASCIMENTO'], errors='coerce').dt.year
+df['NOME_CURSO_BOLSA'] = df['NOME_CURSO_BOLSA'].str.upper()
 ```
 
-Comandos para construir e executar:
+### Etapa 3: Salvar e Recarregar o Arquivo Processado no S3
 
-```bash
-# Construir a imagem
-docker build -t mascarar-dados .
+O DataFrame manipulado foi salvo em um novo arquivo CSV e enviado novamente ao bucket S3.
 
-# Executar o container interativo
-docker run -it mascarar-dados
-````
+```python
+# Salvar o DataFrame processado em CSV
+processed_file_name = "ProuniRelatorioProcessado.csv"
+df.to_csv(processed_file_name, index=False)
+
+# Upload do arquivo processado para o S3
+s3_client.upload_file(processed_file_name, bucket_name, processed_file_name)
+```
+
+---
+
 ## 📸 **Evidências**
 
 ### **Resultados:**
@@ -249,16 +193,15 @@ Aqui estão as evidências do que foi realizado durante a sprint.
 
 **Evidência 1:**\
 ![image](https://github.com/user-attachments/assets/627053ea-c0c5-4803-b7e0-29759e244cf2)
-_execução da etapa 1 do desafio_
+_Upload do arquivo original para o bucket S3_
 
 **Evidência 2:**\
 ![image](https://github.com/user-attachments/assets/4590fb56-b072-4abf-9667-6358110c6907)
-_código hash etapa3_
+_Execução das manipulações e transformações no DataFrame_
 
 **Evidência 3:**\
 ![image](https://github.com/user-attachments/assets/6c126e0d-1378-4743-86c4-8a70ed7b4b31)
-
-_execução imagem etapa3_
+_Upload do arquivo processado de volta ao S3_
 
 ---
 
