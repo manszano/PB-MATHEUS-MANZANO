@@ -11,7 +11,7 @@ Neste projeto, realizamos o upload e manipulação de um dataset de dados do Pro
 
 ## 📂 Estrutura do Projeto
 
-O projeto está dividido em várias etapas, conforme detalhado a seguir:
+O projeto está dividido em **três** etapas, conforme detalhado a seguir:
 
 ### 1. Upload do Arquivo para o Bucket S3
 
