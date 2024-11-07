@@ -8,7 +8,7 @@
  <a href="#Sobre">Sobre</a> •
  <a href="#ex">Exercicío</a> •
  <a href="#desafio">Desafio</a> •
- <a href="#Certificados">Exercícios Docker</a>
+ <a href="#Certificados">Certificados</a>
 </p>
 
 ---
