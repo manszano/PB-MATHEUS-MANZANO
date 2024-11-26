@@ -1,6 +1,5 @@
-<div>
-  <img src="https://github.com/user-attachments/assets/4a9d5922-a944-4f6e-8a6c-b07e44b00df2" width="100%" alt="Banner">
-</div>
+![sprint7](https://github.com/user-attachments/assets/c256f579-2633-499d-b540-84ad7b021c89)
+
 
 &nbsp;
 # 🎥 Integração TMDB e AWS S3 com Lambda
