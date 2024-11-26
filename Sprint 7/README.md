@@ -76,16 +76,23 @@ print(f"Total de palavras: {total_words}")
 - **Configuração do Lambda**: A função Lambda foi criada e configurada com uma Layer contendo as bibliotecas `tmdbv3api` e `boto3`.
 
 ### **Evidências**
+- Exercicio SPARK (realizado no collab)
+  ![exerciciospark](https://github.com/user-attachments/assets/ecbd85c9-07a2-4866-93c2-b441f671f9eb)
 
 - Os arquivos JSON foram gravados no bucket S3 no caminho especificado:
+  ![S3](https://github.com/user-attachments/assets/8b880e0e-f3ff-4d4c-8266-7b21f74a50bd)
     ```
     Raw/TMDB/JSON/<ano>/<mês>/<dia>/part-<número>.json
     ```
-- Logs confirmam o sucesso da operação.
+- Script LAMBDA.
+![LAMBDA](https://github.com/user-attachments/assets/650ffa9e-2b05-4e6d-91d6-9f5a9b65b62b)
 
+- Política IAM LAMBDA.
+![politica-iam](https://github.com/user-attachments/assets/3fd9cf8c-026b-4e58-ae61-4ae62023c435)
 ---
+
 
 ## 🎯 **Conclusão**
 
-O desafio permitiu o aprendizado e aplicação prática de conceitos fundamentais em integração com APIs, manipulação de dados e serviços em nuvem como o AWS Lambda e S3. Foi um exercício enriquecedor para consolidar habilidades em desenvolvimento e DevOps.
+O desafio permitiu o aprendizado e aplicação prática de conceitos fundamentais em integração com APIs.
 ![bottom](https://github.com/user-attachments/assets/a06b7240-a4be-45d7-86e7-9427136b3891)
