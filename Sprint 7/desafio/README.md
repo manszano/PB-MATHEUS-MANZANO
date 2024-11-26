@@ -136,3 +136,5 @@ _Função Lambda realizando upload dos arquivos JSON_
 
 - Os arquivos foram armazenados no bucket `manzano-datalake` nos seguintes diretórios:
   `Raw/TMDB/JSON/<ano>/<mês>/<dia>/part-0.json`
+
+![bottom](https://github.com/user-attachments/assets/a06b7240-a4be-45d7-86e7-9427136b3891)
