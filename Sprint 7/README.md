@@ -42,7 +42,7 @@ Criar uma função **AWS Lambda** que consuma a API TMDB para coletar informaç�
 ### **Objetivo**
 Contar a quantidade total de palavras no arquivo `README.md` carregado diretamente no Google Colab.
 
-`python
+```python
 from pyspark.sql import SparkSession
 
 # Iniciar uma sessão Spark
@@ -63,7 +63,7 @@ total_words = (
 
 # Exibir o total de palavras
 print(f"Total de palavras: {total_words}")
-`
+```
 
 ---
 
