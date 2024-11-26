@@ -37,66 +37,33 @@ Criar uma função **AWS Lambda** que consuma a API TMDB para coletar informaç�
 ---
 
 <a id="exercicio"></a>
-## **Exercício: Código Implementado no Colab**
+## **Exercício: Contagem de Palavras no Spark**
 
-O código abaixo foi utilizado para implementar a solução no ambiente de desenvolvimento.
+### **Objetivo**
+Contar a quantidade total de palavras no arquivo `README.md` carregado diretamente no Google Colab.
 
-```python
-import json
-import boto3
-import os
-from datetime import datetime
-from tmdbv3api import TMDb, Movie
+`python
+from pyspark.sql import SparkSession
 
-# Configuração da API TMDB
-tmdb = TMDb()
-tmdb.api_key = os.environ['chave']  # Substituir por sua chave TMDB
-movie = Movie()
+# Iniciar uma sessão Spark
+spark = SparkSession.builder.appName("WordCount").getOrCreate()
 
-# Configuração do cliente S3
-s3_client = boto3.client('s3')
-bucket_name = 'manzano-datalake'
+# Caminho do arquivo README.md
+file_path = "README.md"
 
-def lambda_handler(event, context):
-    base_path = 'Raw/TMDB/JSON'
-    today = datetime.utcnow().strftime('%Y/%m/%d')
-    movies = movie.popular()
-    
-    # Agrupando dados em lotes de 100
-    grouped_data = [movies[i:i+100] for i in range(0, len(movies), 100)]
-    
-    for index, group in enumerate(grouped_data):
-        file_name = f"{base_path}/{today}/part-{index}.json"
-        json_data = json.dumps([m.__dict__ for m in group], indent=4)
-        
-        # Upload para o S3
-        s3_client.put_object(
-            Bucket=bucket_name,
-            Key=file_name,
-            Body=json_data,
-            ContentType='application/json'
-        )
-        print(f"Arquivo {file_name} gravado com sucesso no bucket {bucket_name}.")
-    
-    return {
-        'statusCode': 200,
-        'body': "Função executada com sucesso!"
-    }
-```
+# Carregar o arquivo como RDD
+rdd = spark.sparkContext.textFile(file_path)
 
-### **Considerações Importantes**
+# Contar o total de palavras
+total_words = (
+    rdd.flatMap(lambda line: line.split())  # Dividir em palavras
+    .map(lambda word: 1)                   # Mapear cada palavra como 1
+    .reduce(lambda a, b: a + b)            # Somar todas as ocorrências
+)
 
-#### _Aprendizados_
-
-- Conexão com a API TMDB utilizando a biblioteca `tmdbv3api`.
-- Manipulação e serialização de objetos Python em JSON.
-- Operações com o S3 via `boto3`, incluindo upload e configuração de permissões.
-
-#### _Tecnologias Utilizadas_
-
-- Python 3.9
-- tmdbv3api
-- boto3 (integração com AWS S3)
+# Exibir o total de palavras
+print(f"Total de palavras: {total_words}")
+`
 
 ---
 
@@ -121,3 +88,4 @@ def lambda_handler(event, context):
 ## 🎯 **Conclusão**
 
 O desafio permitiu o aprendizado e aplicação prática de conceitos fundamentais em integração com APIs, manipulação de dados e serviços em nuvem como o AWS Lambda e S3. Foi um exercício enriquecedor para consolidar habilidades em desenvolvimento e DevOps.
+![bottom](https://github.com/user-attachments/assets/a06b7240-a4be-45d7-86e7-9427136b3891)
