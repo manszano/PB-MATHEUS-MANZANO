@@ -16,6 +16,8 @@ O projeto foi dividido em **três etapas principais**, conforme descrito abaixo:
 
 ### 1. Consumo da API TMDB
 
+
+
 Nesta etapa, conectamos à API TMDB usando a biblioteca `tmdbv3api` para obter os dados de filmes populares.
 
 #### Código Python para Consumo:
@@ -32,7 +34,7 @@ movie = Movie()
 movies = movie.popular()
 print(f"Total de filmes populares obtidos: {len(movies)}")
 ```
-
+[script completo](https://github.com/manszano/PB-MATHEUS-MANZANO/blob/main/Sprint%207/desafio/lambdafunction.py)
 ---
 
 ### 2. Processamento e Upload para o S3
@@ -71,7 +73,7 @@ for index, group in enumerate(grouped_data):
     )
     print(f"Arquivo {file_name} carregado com sucesso no bucket {bucket_name}.")
 ```
-
+[script completo](https://github.com/manszano/PB-MATHEUS-MANZANO/blob/main/Sprint%207/desafio/lambdafunction.py)
 ---
 
 ### 3. Execução no AWS Lambda
@@ -118,7 +120,7 @@ def lambda_handler(event, context):
         'body': "Função Lambda executada com sucesso!"
     }
 ```
-
+[script completo](https://github.com/manszano/PB-MATHEUS-MANZANO/blob/main/Sprint%207/desafio/lambdafunction.py)
 ---
 
 ## 📸 **Evidências**
