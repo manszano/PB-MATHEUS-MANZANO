@@ -1,4 +1,4 @@
-![header-image](#)
+![edsafio](https://github.com/user-attachments/assets/ac9b0eef-4f9c-4e7a-a865-7041f48bbc93)
 
 &nbsp;  
 # 🎥 Transformação de Dados no AWS Glue
@@ -18,7 +18,7 @@ O projeto foi dividido em **duas etapas principais**, conforme descrito abaixo:
 Nesta etapa, foi realizada a leitura de um arquivo CSV bruto da camada Raw do Data Lake, e os dados foram transformados e salvos na camada Trusted no formato Parquet. 
 
 #### Código Python:
-
+[proc-csv](https://github.com/manszano/PB-MATHEUS-MANZANO/blob/main/Sprint%208/desafio/proc-csv.py)
 ```python
 import sys
 from pyspark.sql import SparkSession
@@ -44,7 +44,7 @@ df.write.mode("overwrite").parquet(trusted_path)
 Nesta etapa, os dados obtidos da API TMDB foram processados, enriquecidos e particionados por data de execução. Os dados transformados foram salvos na camada Trusted, também no formato Parquet.
 
 #### Código Python:
-
+[proc-tmdb](https://github.com/manszano/PB-MATHEUS-MANZANO/blob/main/Sprint%208/desafio/proc-csv.py)
 ```python
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import current_date
@@ -71,8 +71,22 @@ df.write.mode("overwrite").partitionBy("partition_date").parquet(trusted_path)
 ## 📸 **Evidências**
 
 ### **Scripts Executados:**  
-![evidencia](#)  
-_A transformação foi executada com sucesso e os dados foram salvos conforme os padrões definidos._  
+![etljobs](https://github.com/user-attachments/assets/d36d1fc1-52af-4762-8842-af201645f158)
+&nbsp; 
+_jobs_  
+
+![proc-csv](https://github.com/user-attachments/assets/0d7dafbd-365e-4a2d-94d6-8ea5098923c7)
+&nbsp; 
+_proc csv job_
+![proc-tmdb](https://github.com/user-attachments/assets/83d2d87d-20b4-4301-b341-a6c97f40dca3)
+&nbsp; 
+_proc tmbd job_
+![job-parameters](https://github.com/user-attachments/assets/aa94cbb2-e8c6-4ec2-8c11-420f5bf8c75b)
+&nbsp;
+_parametros jobs_
+&nbsp;
+&nbsp; 
+*A transformação foi executada com sucesso e os dados foram salvos conforme os padrões definidos.*
 
 ---
 
@@ -84,5 +98,5 @@ _A transformação foi executada com sucesso e os dados foram salvos conforme os
   
 - **Integração com API TMDB:** Dados armazenados no seguinte diretório:  
   `trusted/zone/tmdb_api/<ano>/<mês>/<dia>/dados.parquet`
-
-![footer-image](#)
+  
+![bottom](https://github.com/user-attachments/assets/a06b7240-a4be-45d7-86e7-9427136b3891)
