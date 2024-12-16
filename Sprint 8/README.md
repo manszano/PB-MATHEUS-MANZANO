@@ -13,7 +13,7 @@
 ## 📝 **Sobre**
 
 ### **Objetivo do Projeto**
-Este projeto tem como objetivo aplicar técnicas de manipulação de dados e processamento distribuído utilizando Apache Spark. Os exercícios consistem em operações básicas com listas e manipulação de DataFrames, enquanto o desafio é implementado no AWS Glue para transformação e organização de dados em um Data Lake.
+Este projeto tem como objetivo aplicar uma organização de dados em um Data Lake.
 
 ---
 
