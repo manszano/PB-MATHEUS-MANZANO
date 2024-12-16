@@ -1,4 +1,5 @@
-![header-image](#)
+
+![sprint8](https://github.com/user-attachments/assets/91ac6866-420c-42df-8a78-85cdb7c2ad85)
 
 <p align="center">
  <a href="#Sobre">Sobre</a> •
@@ -191,4 +192,4 @@ df.write.mode("overwrite").partitionBy("partition_date").parquet(trusted_path)
 ## 🎯 **Conclusão**
 Os exercícios e o desafio mostraram como manipular dados de maneira eficiente em Python e Spark. A implementação no AWS Glue permite escalar o processamento em um ambiente distribuído.
 
-![footer-image](#)
+![bottom](https://github.com/user-attachments/assets/a06b7240-a4be-45d7-86e7-9427136b3891)
