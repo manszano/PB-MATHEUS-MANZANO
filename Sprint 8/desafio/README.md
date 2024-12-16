@@ -3,9 +3,7 @@
 &nbsp;  
 # 🎥 Transformação de Dados no AWS Glue
 
-Este projeto tem como objetivo realizar a transformação e organização de dados em um Data Lake, utilizando o AWS Glue. Foram implementados dois jobs principais para leitura, transformação e particionamento de dados.
-
-Para replicação, utilize o código Python fornecido, configurando suas credenciais e dependências no ambiente AWS Glue.
+Este desafio tem como objetivo realizar a transformação e organização de dados do Data Lake para a camada trusted.
 
 ---
 
